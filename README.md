@@ -13,18 +13,18 @@ python 3.10+
 <div class="termy">
 
 ```console
-$ pip install rubika_bot-bot
+$ pip install rubika-bot
 ```
 
 <hr/>
 
 ## Introduction
 
-You will receive updates in <b><u>receiveUpdate</u></b> and <b><u>receiveInlineMessage</u></b> urls
+You will receive updates in <b>receiveUpdate</b> and <b>receiveInlineMessage</b> urls
 
 - ### receiveUpdate:
-    You'll get a request whenever user <b><u>send text</u></b> or tap a <b><u>keypad</u></b>
-  - #### request body:
+    You'll get a request whenever user <b>send text</b> or tap a <b>keypad</b>
+  - #### sample request body:
     ```json
     {
         "inline_message": {
@@ -44,12 +44,12 @@ You will receive updates in <b><u>receiveUpdate</u></b> and <b><u>receiveInlineM
     - <b>text</b> is the text of button
     - <b>button_id</b> is the ID that you set for the button
     - <b>message_id</b> is the unique ID of this message 
-    - <u><b>chat_id</b></u> is the unique ID of this chat with user <b>(You should use this value when you want to send him back anything)</b>
+    - <b>chat_id</b> is the unique ID of this chat with user <b>(You should use this value when you want to send him back anything)</b>
 
     
 - ### receiveInlineMessage:
-    You'll get a request whenever user tap an <b><u>inline keypad</u></b>
-  - #### request body:
+    You'll get a request whenever user tap an <b>inline keypad</b>
+  - #### sample request body:
       ```json
       {
           "update": {
@@ -74,7 +74,7 @@ You will receive updates in <b><u>receiveUpdate</u></b> and <b><u>receiveInlineM
     - <b>text</b> is the text of button
     - <b>button_id</b> is the ID that you set for the button
     - <b>message_id</b> is the unique ID of this message 
-    - <u><b>chat_id</b></u> is the unique ID of this chat with user <b>(You should use this value when you want to send him back anything)</b>
+    - <b>chat_id</b> is the unique ID of this chat with user <b>(You should use this value when you want to send him back anything)</b>
 
 And when you get request, you can use methods below for sending request to bot.
 <hr/>
@@ -291,3 +291,5 @@ delete_message(
 
 </div>
 
+## TODO:
+- [ ] Change the required python version from 3.10 to 3.8
