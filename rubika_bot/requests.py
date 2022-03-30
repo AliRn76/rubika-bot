@@ -167,14 +167,20 @@ def get_chat(token: str, chat_id: str) -> Chat:
 def get_updates(token: str, limit: int, offset_id: str) -> tuple[list[Update], str]:
     data = {
         'limit': limit,
-        'offset_id': offset_id,
     }
+    if offset_id:
+        data['offset_id'] = offset_id
+
     res = _send_request(token=token, method='getUpdates', data=data)
     return [Update(**update) for update in res['updates']], res['next_offset_id']
 
 
 def forward_message(
-        token: str, from_chat_id: str, message_id: str, to_chat_id: str, disable_notification: bool = False
+        token: str,
+        from_chat_id: str,
+        message_id: str,
+        to_chat_id: str,
+        disable_notification: bool = False
 ) -> str:
     data = {
         'from_chat_id': from_chat_id,
