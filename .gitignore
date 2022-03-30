@@ -1,0 +1,6 @@
+.idea/
+.venv/
+__pycache__/
+rubika_bot.egg-info/
+dist/
+build/
