@@ -1,0 +1,56 @@
+site_name: Rubika Bot Father
+theme:
+  name: material
+  palette:
+  - scheme: default
+    primary: purple
+    accent: amber
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - scheme: slate
+    primary: purple
+    accent: amber
+    toggle:
+      icon: material/weather-night
+      name: Switch to light mode
+  features:
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github-alt
+#  logo: img/icon-white.svg
+#  favicon: img/favicon.png
+  language: en
+
+nav:
+- Home: index.md
+- Introduction: introduction.md
+- Usage: usage.md
+
+repo_name: AliRn76/rubika-bot
+repo_url: https://github.com/AliRn76/rubika-bot
+
+markdown_extensions:
+- pymdownx.superfences:
+    custom_fences:
+    - name: mermaid
+      class: mermaid
+      format: !!python/name:pymdownx.superfences.fence_code_format ''
+#- pymdownx.tabbed:
+#    alternate_style: true
+extra:
+  alternate:
+  - link: /
+    name: English
+    lang: en
+  - link: /fa/
+    name: Persian
+    lang: fa
+extra_css:
+- https://fastapi.tiangolo.com/css/termynal.css
+- https://fastapi.tiangolo.com/css/custom.css
+extra_javascript:
+- https://fastapi.tiangolo.com/js/termynal.js
+- https://fastapi.tiangolo.com/js/custom.js
