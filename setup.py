@@ -14,7 +14,7 @@ _long_description = open('README.md').read()
 setup(
     name='rubika-bot',
     version=_version,
-    python_requires='>=3.10',
+    python_requires='>=3.8',
     author='Rubika Team',
     author_email='A.RajabNezhad@rubika.ir',
     keywords=['rubika', 'bot', 'rubika-bot'],
@@ -27,6 +27,8 @@ setup(
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
     ],
     packages=find_packages(where='.', exclude=(), include=('*',)),

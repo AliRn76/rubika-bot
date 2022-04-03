@@ -1,6 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel
-from typing import Literal
+from typing import Literal, List, Union, Optional
 
 
 class File(BaseModel):
@@ -66,14 +66,14 @@ class ContactMessage(BaseModel):
 class PollStatus(BaseModel):
     state: Literal['Open', 'Closed']
     selection_index: int
-    percent_vote_options: list[int]
+    percent_vote_options: List[int]
     total_vote: int
     show_total_votes: bool
 
 
 class Poll(BaseModel):
     question: str
-    options: list[str]
+    options: List[str]
     poll_status: PollStatus
 
 
@@ -101,7 +101,7 @@ class ButtonSelection(BaseModel):
     selection_id: str
     search_type: Literal[None, 'Local', 'Api']
     get_type: Literal['Local', 'Api']
-    items: list[ButtonSelectionItem]
+    items: List[ButtonSelectionItem]
     is_multi_selection: bool
     columns_count: str
     title: str
@@ -118,12 +118,12 @@ class ButtonCalendar(BaseModel):
 class ButtonNumberPicker(BaseModel):
     min_value: int
     max_value: int
-    default_value: int | None
+    default_value: Union[int, None]
     title: str
 
 
 class ButtonStringPicker(BaseModel):
-    items: list[str]
+    items: List[str]
     default_value: str
     title: str
 
@@ -145,8 +145,8 @@ class ButtonLocation(BaseModel):
 
 
 class AuxData(BaseModel):
-    start_id: str | None
-    button_id: str | None
+    start_id: Optional[str]
+    button_id: Optional[str]
 
 
 class Button(BaseModel):
@@ -155,23 +155,23 @@ class Button(BaseModel):
                   'CameraImage', 'CameraVideo', 'GalleryImage', 'GalleryVideo', 'File', 'Audio', 'RecordAudio',
                   'MyPhoneNumber', 'MyLocation', 'Textbox', 'Link', 'AskMyPhoneNumber', 'AskLocation', 'Barcode']
     button_text: str
-    button_selection: ButtonSelection | None
-    button_calendar: ButtonCalendar | None
-    button_number_picker: ButtonNumberPicker | None
-    button_string_picker: ButtonStringPicker | None
-    button_location: ButtonLocation | None
-    button_textbox: ButtonTextbox | None
-    # button_link: Link | None
+    button_selection: Optional[ButtonSelection]
+    button_calendar: Optional[ButtonCalendar]
+    button_number_picker: Optional[ButtonNumberPicker]
+    button_string_picker: Optional[ButtonStringPicker]
+    button_location: Optional[ButtonLocation]
+    button_textbox: Optional[ButtonTextbox]
+    # button_link: Optional[Link]
 
 
 class KeypadRow(BaseModel):
-    buttons: list[Button]
+    buttons: List[Button]
 
 
 class Keypad(BaseModel):
-    rows: list[KeypadRow]
-    resize_keyboard: bool | None
-    on_time_keyboard: bool | None
+    rows: List[KeypadRow]
+    resize_keyboard: Optional[bool]
+    on_time_keyboard: Optional[bool]
 
 
 class MessageKeypadUpdate(BaseModel):
@@ -187,32 +187,32 @@ class Message(BaseModel):
     sender_type: Literal['User', 'Bot']
     sender_id: str
 
-    aux_data: AuxData | None
-    file: File | None
-    reply_to_message_id: str | None
-    forwarded_from: ForwardedFrom | None
-    forwarded_no_link: str | None  # TODO: type? from_title ?
-    location: Location | None
-    sticker: Sticker | None
-    contact_message: ContactMessage | None
-    poll: Poll | None
-    live_location: LiveLocation | None
+    aux_data: Optional[AuxData]
+    file: Optional[File]
+    reply_to_message_id: Optional[str]
+    forwarded_from: Optional[ForwardedFrom]
+    forwarded_no_link: Optional[str]  # TODO: type? from_title ?
+    location: Optional[Location]
+    sticker: Optional[Sticker]
+    contact_message: Optional[ContactMessage]
+    poll: Optional[Poll]
+    live_location: Optional[LiveLocation]
 
 
 class Update(BaseModel):
     type: Literal['UpdatedMessage', 'NewMessage', 'RemovedMessage', 'StartedBot', 'StoppedBot', 'UpdatedPayment']
     chat_id: str
-    removed_message_id: str | None
+    removed_message_id: Optional[str]
     new_message: Message
-    updated_message: Message | None
-    updated_payment: PaymentStatus | None
+    updated_message: Optional[Message]
+    updated_payment: Optional[PaymentStatus]
 
 
 class InlineMessage(BaseModel):
     sender_id: str
     text: str
     file: File
-    location: Location | None
+    location: Optional[Location]
     aux_data: AuxData
     message_id: str
     chat_id: str

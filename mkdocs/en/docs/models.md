@@ -43,15 +43,15 @@
 
 ### Bot
 
-| Field           | Type    | Description          |
-|-----------------|---------|----------------------|
-| `bot_id`        | `str`   | Unique ID of Bot     |
-| `bot_title`     | `str`   | Title of Bot         | 
-| `avatar`        | `File`  | Avatar of Bot        |
-| `description`   | `str`   | Description of Bot   |
-| `username`      | `str`   | Username of Bot      |
-| `start_message` | `str`   | Start Message of Bot |
-| `share_url`     | `str`   | Share URL of Bot     |
+| Field           | Type            | Description          |
+|-----------------|-----------------|----------------------|
+| `bot_id`        | `str`           | Unique ID of Bot     |
+| `bot_title`     | `str`           | Title of Bot         | 
+| `avatar`        | [`File`](#file) | Avatar of Bot        |
+| `description`   | `str`           | Description of Bot   |
+| `username`      | `str`           | Username of Bot      |
+| `start_message` | `str`           | Start Message of Bot |
+| `share_url`     | `str`           | Share URL of Bot     |
 
 ### BotCommand
 
@@ -62,11 +62,11 @@
 
 ### Sticker
 
-| Field             | Type    | Description          |
-|-------------------|---------|----------------------|
-| `sticker_id`      | `str`   | Unique ID of Sticker |
-| `file`            | `File`  | Emoji File           | 
-| `emoji_character` | `str`   | Character of Emoji   | 
+| Field             | Type             | Description          |
+|-------------------|------------------|----------------------|
+| `sticker_id`      | `str`            | Unique ID of Sticker |
+| `file`            | [`File`](#file)  | Emoji File           | 
+| `emoji_character` | `str`            | Character of Emoji   | 
 
 ### ContactMessage
 
@@ -88,11 +88,11 @@
 
 ### Poll
 
-| Field           | Type         | Description         |
-|-----------------|--------------|---------------------|
-| `question`      | `str`        | Question Text       |
-| `options`       | `list[str]`  | Options of Question | 
-| `poll_status`   | `PollStatus` | ...                 |
+| Field           | Type                        | Description         |
+|-----------------|-----------------------------|---------------------|
+| `question`      | `str`                       | Question Text       |
+| `options`       | `list[str]`                 | Options of Question | 
+| `poll_status`   | [`PollStatus`](#pollstatus) | ...                 |
 
 ### Location
 
@@ -103,14 +103,14 @@
 
 ### LiveLocation
 
-| Field              | Type       | Description            |
-|--------------------|------------|------------------------|
-| `start_time`       | `str`      | ...                    |
-| `live_period`      | `int`      | in seconds             | 
-| `current_location` | `Location` | ...                    | 
-| `user_id`          | `str`      | Unique ID of User      | 
-| `status`           | `str`      | can be (Stopped, Live) | 
-| `last_update_time` | `str`      | ...                    | 
+| Field              | Type                    | Description            |
+|--------------------|-------------------------|------------------------|
+| `start_time`       | `str`                   | ...                    |
+| `live_period`      | `int`                   | in seconds             | 
+| `current_location` | [`Location`](#location) | ...                    | 
+| `user_id`          | `str`                   | Unique ID of User      | 
+| `status`           | `str`                   | can be (Stopped, Live) | 
+| `last_update_time` | `str`                   | ...                    | 
 
 ### ButtonSelectionItem
 
@@ -122,25 +122,25 @@
 
 ### ButtonSelection
 
-| Field                | Type                        | Description                   |
-|----------------------|-----------------------------|-------------------------------|
-| `selection_id`       | `str`                       | Unique ID of Button Selection |
-| `search_type`        | `Union[str, None]`          | can be (None, Local, Api)     | 
-| `get_type`           | `str`                       | can be (Local, Api)           | 
-| `items`              | `list[ButtonSelectionItem]` | ...                           | 
-| `is_multi_selection` | `bool`                      |                               | 
-| `columns_count`      | `str`                       |                               | 
-| `title`              | `str`                       |                               | 
+| Field                | Type                                                | Description                   |
+|----------------------|-----------------------------------------------------|-------------------------------|
+| `selection_id`       | `str`                                               | Unique ID of Button Selection |
+| `search_type`        | `Union[str, None]`                                  | can be (None, Local, Api)     | 
+| `get_type`           | `str`                                               | can be (Local, Api)           | 
+| `items`              | [`list[ButtonSelectionItem]`](#buttonselectionitem) | ...                           | 
+| `is_multi_selection` | `bool`                                              |                               | 
+| `columns_count`      | `str`                                               |                               | 
+| `title`              | `str`                                               |                               | 
 
 ### ButtonCalendar
 
-| Field           | Type                        | Description                         |
-|-----------------|-----------------------------|-------------------------------------|
-| `default_value` | `str`                       | ...                                 |
-| `type`          | `Union[str, None]`          | can be (DatePersian, DateGregorian) | 
-| `min_year`      | `str`                       | ...                                 | 
-| `max_year`      | `list[ButtonSelectionItem]` | ...                                 | 
-| `title`         | `str`                       | ...                                 | 
+| Field           | Type                                                | Description                         |
+|-----------------|-----------------------------------------------------|-------------------------------------|
+| `default_value` | `str`                                               | ...                                 |
+| `type`          | `Union[str, None]`                                  | can be (DatePersian, DateGregorian) | 
+| `min_year`      | `str`                                               | ...                                 | 
+| `max_year`      | [`list[ButtonSelectionItem]`](#buttonselectionitem) | ...                                 | 
+| `title`         | `str`                                               | ...                                 | 
 
 ### ButtonNumberPicker
 
@@ -171,13 +171,13 @@
 
 ### ButtonLocation
 
-| Field                       | Type       | Description         |
-|-----------------------------|------------|---------------------|
-| `default_pointer_location`  | `Location` | ...                 |
-| `default_map_location`      | `Location` | ...                 | 
-| `type`                      | `str`      | can be Picker, View | 
-| `title`                     | `str`      | ...                 | 
-| `location_image_url`        | `str`      | ...                 | 
+| Field                       | Type                     | Description         |
+|-----------------------------|--------------------------|---------------------|
+| `default_pointer_location`  | [`Location`](#location)  | ...                 |
+| `default_map_location`      | [`Location`](#location)  | ...                 | 
+| `type`                      | `str`                    | can be Picker, View | 
+| `title`                     | `str`                    | ...                 | 
+| `location_image_url`        | `str`                    | ...                 | 
 
 ### AuxData
 
@@ -188,85 +188,85 @@
 
 ### Button
 
-| Field                  | Type                 | Description                                                                                                                                                                                                                                           |
-|------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                   | `str`                | Unique ID of Button                                                                                                                                                                                                                                   |
-| `type`                 | `str`                | can be (Simple, Selection, Calendar, NumberPicker, StringPicker, Location, Payment, CameraImage, CameraVideo, GalleryImage, GalleryVideo, File, Audio, RecordAudio, MyPhoneNumber, MyLocation, Textbox, Link, AskMyPhoneNumber, AskLocation, Barcode) |
-| `button_text`          | `str`                | ...                                                                                                                                                                                                                                                   |
-| `button_selection`     | `ButtonSelection`    | ...                                                                                                                                                                                                                                                   |
-| `button_calendar`      | `ButtonCalendar`     | ...                                                                                                                                                                                                                                                   |
-| `button_number_picker` | `ButtonNumberPicker` | ...                                                                                                                                                                                                                                                   |
-| `button_string_picker` | `ButtonStringPicker` | ...                                                                                                                                                                                                                                                   |
-| `button_location`      | `ButtonLocation`     | ...                                                                                                                                                                                                                                                   |
-| `button_textbox`       | `ButtonTextbox`      | ...                                                                                                                                                                                                                                                   |
+| Field                  | Type                                        | Description                                                                                                                                                                                                                                           |
+|------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                   | `str`                                       | Unique ID of Button                                                                                                                                                                                                                                   |
+| `type`                 | `str`                                       | can be (Simple, Selection, Calendar, NumberPicker, StringPicker, Location, Payment, CameraImage, CameraVideo, GalleryImage, GalleryVideo, File, Audio, RecordAudio, MyPhoneNumber, MyLocation, Textbox, Link, AskMyPhoneNumber, AskLocation, Barcode) |
+| `button_text`          | `str`                                       | ...                                                                                                                                                                                                                                                   |
+| `button_selection`     | [`ButtonSelection`](#buttonselection)       | ...                                                                                                                                                                                                                                                   |
+| `button_calendar`      | [`ButtonCalendar`](#buttoncalendar)         | ...                                                                                                                                                                                                                                                   |
+| `button_number_picker` | [`ButtonNumberPicker`](#buttonnumberpicker) | ...                                                                                                                                                                                                                                                   |
+| `button_string_picker` | [`ButtonStringPicker`](#buttonstringpicker) | ...                                                                                                                                                                                                                                                   |
+| `button_location`      | [`ButtonLocation`](#buttonlocation)         | ...                                                                                                                                                                                                                                                   |
+| `button_textbox`       | [`ButtonTextbox`](#buttontextbox)           | ...                                                                                                                                                                                                                                                   |
 
 ### KeypadRow
 
-| Field      | Type                 | Description       |
-|------------|----------------------|-------------------|
-| `buttons`  | `list[Button]`       | List of Buttons   |
+| Field      | Type                      | Description       |
+|------------|---------------------------|-------------------|
+| `buttons`  | [`list[Button]`](#button) | List of Buttons   |
 
 ### Keypad
 
-| Field               | Type              | Description  |
-|---------------------|-------------------|--------------|
-| `rows`              | `list[KeypadRow]` | List of Rows |
-| `resize_keyboard`   | `bool`            | ...          |
-| `on_time_keyboard`  | `bool`            | ...          |
+| Field               | Type                            | Description  |
+|---------------------|---------------------------------|--------------|
+| `rows`              | [`list[KeypadRow]`](#keypadrow) | List of Rows |
+| `resize_keyboard`   | `bool`                          | ...          |
+| `on_time_keyboard`  | `bool`                          | ...          |
 
 ### MessageKeypadUpdate
 
-| Field            | Type      | Description       |
-|------------------|-----------|-------------------|
-| `message_id`     | `str`     | ID of Message     |
-| `inline_keypad`  | `Keypad`  | New Inline Keypad |
+| Field            | Type                | Description       |
+|------------------|---------------------|-------------------|
+| `message_id`     | `str`               | ID of Message     |
+| `inline_keypad`  | [`Keypad`](#keypad) | New Inline Keypad |
 
 
 ### Message
 
-| Field                 | Type             | Description          |
-|-----------------------|------------------|----------------------|
-| `message_id`          | `str`            | Unique ID of Message |
-| `text`                | `str`            | Text of Message      |
-| `time`                | `int`            | Unix Time            |
-| `is_edited`           | `bool`           | ...                  |
-| `sender_type`         | `str`            | can be (User, Bot)   |
-| `sender_id`           | `str`            | ID of Sender (User)  |
-| `aux_data`            | `AuxData`        | ...                  |
-| `file`                | `File`           | ...                  |
-| `reply_to_message_id` | `str`            | ...                  |
-| `forwarded_from`      | `ForwardedFrom`  | ...                  |
-| `forwarded_no_link`   | `str`            | ...                  |
-| `location`            | `Location`       | ...                  |
-| `sticker`             | `Sticker`        | ...                  |
-| `contact_message`     | `ContactMessage` | ...                  |
-| `poll`                | `Poll`           | ...                  |
-| `live_location`       | `LiveLocation`   | ...                  |
+| Field                 | Type                                | Description          |
+|-----------------------|-------------------------------------|----------------------|
+| `message_id`          | `str`                               | Unique ID of Message |
+| `text`                | `str`                               | Text of Message      |
+| `time`                | `int`                               | Unix Time            |
+| `is_edited`           | `bool`                              | ...                  |
+| `sender_type`         | `str`                               | can be (User, Bot)   |
+| `sender_id`           | `str`                               | ID of Sender (User)  |
+| `aux_data`            | [`AuxData`](#auxdata)               | ...                  |
+| `file`                | [`File`](#file)                     | ...                  |
+| `reply_to_message_id` | `str`                               | ...                  |
+| `forwarded_from`      | [`ForwardedFrom`](#forwardedfrom)   | ...                  |
+| `forwarded_no_link`   | `str`                               | ...                  |
+| `location`            | [`Location`](#location)             | ...                  |
+| `sticker`             | [`Sticker`](#sticker)               | ...                  |
+| `contact_message`     | [`ContactMessage`](#contactmessage) | ...                  |
+| `poll`                | [`Poll`](#poll)                     | ...                  |
+| `live_location`       | [`LiveLocation`](#livelocation)     | ...                  |
 
 
 ### Update
 
-| Field                | Type                      | Description                                                                                 |
-|----------------------|---------------------------|---------------------------------------------------------------------------------------------|
-| `type`               | `str`                     | can be (UpdatedMessage, NewMessage, RemovedMessage, StartedBot, StoppedBot, UpdatedPayment) |
-| `chat_id`            | `str`                     | ID of Chat                                                                                  |
-| `removed_message_id` | `Optional[str]`           | ...                                                                                         |
-| `new_message`        | `Message`                 | ...                                                                                         |
-| `updated_message`    | `Optional[Message]`       | can be (User, Bot)                                                                          |
-| `updated_payment`    | `Optional[PaymentStatus]` | ID of Sender (User)                                                                         |
+| Field                | Type                                        | Description                                                                                 |
+|----------------------|---------------------------------------------|---------------------------------------------------------------------------------------------|
+| `type`               | `str`                                       | can be (UpdatedMessage, NewMessage, RemovedMessage, StartedBot, StoppedBot, UpdatedPayment) |
+| `chat_id`            | `str`                                       | ID of Chat                                                                                  |
+| `removed_message_id` | `Optional[str]`                             | ...                                                                                         |
+| `new_message`        | [`Message`](#message)                       | ...                                                                                         |
+| `updated_message`    | [`Optional[Message]`](#message)             | can be (User, Bot)                                                                          |
+| `updated_payment`    | [`Optional[PaymentStatus]`](#paymentstatus) | ID of Sender (User)                                                                         |
 
 
 ### InlineMessage
 
-| Field        | Type                 | Description                    |
-|--------------|----------------------|--------------------------------|
-| `sender_id`  | `str`                | ID of Sender (User)            |
-| `text`       | `str`                | Text of Message (can be empty) |
-| `file`       | `File`               | ...                            |
-| `location`   | `Optional[Location]` | ...                            |
-| `aux_data`   | `Optional[AuxData]`  | ...                            |
-| `message_id` | `str`                | ID of Message                  |
-| `chat_id`    | `str`                | ID of Chat                     |
+| Field        | Type                              | Description                    |
+|--------------|-----------------------------------|--------------------------------|
+| `sender_id`  | `str`                             | ID of Sender (User)            |
+| `text`       | `str`                             | Text of Message (can be empty) |
+| `file`       | `File`                            | ...                            |
+| `location`   | [`Optional[Location]`](#location) | ...                            |
+| `aux_data`   | [`Optional[AuxData]`](#auxdata)   | ...                            |
+| `message_id` | `str`                             | ID of Message                  |
+| `chat_id`    | `str`                             | ID of Chat                     |
 
 
 

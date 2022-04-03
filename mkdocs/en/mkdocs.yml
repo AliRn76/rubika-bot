@@ -34,6 +34,8 @@ repo_name: AliRn76/rubika-bot
 repo_url: https://github.com/AliRn76/rubika-bot
 
 markdown_extensions:
+- toc:
+    permalink: ¶
 - pymdownx.superfences:
     custom_fences:
     - name: mermaid

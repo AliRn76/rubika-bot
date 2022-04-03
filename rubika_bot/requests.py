@@ -1,6 +1,6 @@
 import json
 import requests
-from typing import Literal
+from typing import Literal, List, Optional, Tuple
 from exceptions import APIException
 from models import Bot, Keypad, Chat, Update
 
@@ -24,10 +24,10 @@ def send_message(
         token: str,
         chat_id: str,
         text: str,
-        chat_keypad: Keypad | None = None,
+        chat_keypad: Optional[Keypad] = None,
         disable_notification: bool = False,
-        inline_keypad: Keypad | None = None,
-        reply_to_message_id: str | None = None,
+        inline_keypad: Optional[Keypad] = None,
+        reply_to_message_id: Optional[str] = None,
         chat_keypad_type: Literal[None, 'New', 'Remove'] = None,
 ) -> str:
     data = {
@@ -52,11 +52,11 @@ def send_poll(
         token: str,
         chat_id: str,
         question: str,
-        options: list[str],
-        chat_keypad: Keypad | None = None,
+        options: List[str],
+        chat_keypad: Optional[Keypad] = None,
         disable_notification: bool = False,
-        inline_keypad: Keypad | None = None,
-        reply_to_message_id: str | None = None,
+        inline_keypad: Optional[Keypad] = None,
+        reply_to_message_id: Optional[str] = None,
         chat_keypad_type: Literal[None, 'New', 'Remove'] = None,
 ) -> str:
     data = {
@@ -80,10 +80,10 @@ def send_location(
         chat_id: str,
         latitude: str,
         longitude: str,
-        chat_keypad: Keypad | None = None,
+        chat_keypad: Optional[Keypad] = None,
         disable_notification: bool = False,
-        inline_keypad: Keypad | None = None,
-        reply_to_message_id: str | None = None,
+        inline_keypad: Optional[Keypad] = None,
+        reply_to_message_id: Optional[str] = None,
         chat_keypad_type: Literal[None, 'New', 'Remove'] = None,
 ) -> str:
     data = {
@@ -106,10 +106,10 @@ def send_sticker(
         token: str,
         chat_id: str,
         sticker_id: str,
-        chat_keypad: Keypad | None = None,
+        chat_keypad: Optional[Keypad] = None,
         disable_notification: bool = False,
-        inline_keypad: Keypad | None = None,
-        reply_to_message_id: str | None = None,
+        inline_keypad: Optional[Keypad] = None,
+        reply_to_message_id: Optional[str] = None,
         chat_keypad_type: Literal[None, 'New', 'Remove'] = None,
 
 ) -> str:
@@ -134,10 +134,10 @@ def send_contact(
         first_name: str,
         last_name: str,
         phone_number: str,
-        chat_keypad: Keypad | None = None,
+        chat_keypad: Optional[Keypad] = None,
         disable_notification: bool = False,
-        inline_keypad: Keypad | None = None,
-        reply_to_message_id: str | None = None,
+        inline_keypad: Optional[Keypad] = None,
+        reply_to_message_id: Optional[str] = None,
         chat_keypad_type: Literal[None, 'New', 'Remove'] = None,
 
 ) -> str:
@@ -164,7 +164,7 @@ def get_chat(token: str, chat_id: str) -> Chat:
     return Chat(**chat)
 
 
-def get_updates(token: str, limit: int, offset_id: str) -> tuple[list[Update], str]:
+def get_updates(token: str, limit: int, offset_id: str) -> Tuple[List[Update], str]:
     data = {
         'limit': limit,
     }
@@ -222,10 +222,10 @@ def send_file(
         token: str,
         chat_id: str,
         file_id: str,
-        chat_keypad: Keypad | None = None,
+        chat_keypad: Optional[Keypad] = None,
         disable_notification: bool = False,
-        inline_keypad: Keypad | None = None,
-        reply_to_message_id: str | None = None,
+        inline_keypad: Optional[Keypad] = None,
+        reply_to_message_id: Optional[str] = None,
         chat_keypad_type: Literal[None, 'New', 'Remove'] = None,
 ) -> str:
     data = {
