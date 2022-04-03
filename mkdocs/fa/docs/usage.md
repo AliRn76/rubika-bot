@@ -2,19 +2,18 @@
 
 - #### دریافت اطلاعات ربات
 
-
 ```python
 from rubika_bot.requests import get_me
-from rubika_bot.schemas import Bot
+from rubika_bot.models import Bot
 
 bot: Bot = get_me(token=...)
 ```
 
-- #### ارسال Keypad اولیه 
+- #### ارسال Keypad اولیه
 
 ```python
 from rubika_bot.requests import send_message
-from rubika_bot.schemas import Keypad, KeypadRow, Button
+from rubika_bot.models import Keypad, KeypadRow, Button
 
 b1 = Button(id='100', type='Simple', button_text='Add Account')
 b2 = Button(id='101', type='Simple', button_text='Edit Account')
@@ -36,11 +35,11 @@ send_message(
 )
 ```
 
-- #### ارسال Inline Keypad 
+- #### ارسال Inline Keypad
 
 ```python
 from rubika_bot.requests import send_message
-from rubika_bot.schemas import Keypad, KeypadRow, Button
+from rubika_bot.models import Keypad, KeypadRow, Button
 
 b1 = Button(id='100', type='Simple', button_text='Add Account')
 b2 = Button(id='101', type='Simple', button_text='Edit Account')
@@ -123,11 +122,11 @@ send_contact(
 )
 ```
 
-- #### دریافت اطلاعات یک مکالمه 
+- #### دریافت اطلاعات یک مکالمه
 
 ```python
 from rubika_bot.requests import get_chat
-from rubika_bot.schemas import Chat
+from rubika_bot.models import Chat
 
 chat: Chat = get_chat(
     token=...,
@@ -135,11 +134,11 @@ chat: Chat = get_chat(
 )   
 ```
 
-- #### دریافت آخرین ۱۰ آپدیت 
+- #### دریافت آخرین ۱۰ آپدیت
 
 ```python
 from rubika_bot.requests import get_updates
-from rubika_bot.schemas import Update
+from rubika_bot.models import Update
 
 updates, _ = get_updates(
     token=...,
@@ -173,11 +172,11 @@ edit_message_text(
 )
 ```
 
-- #### ویرایش Inline Keypad 
+- #### ویرایش Inline Keypad
 
 ```python
 from rubika_bot.requests import edit_message_keypad
-from rubika_bot.schemas import Button, Keypad, KeypadRow
+from rubika_bot.models import Button, Keypad, KeypadRow
 
 b1 = Button(id='100', type='Simple', button_text='Add Account')
 b2 = Button(id='101', type='Simple', button_text='Edit Account')

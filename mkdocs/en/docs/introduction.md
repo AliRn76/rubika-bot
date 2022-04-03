@@ -61,5 +61,5 @@ You'll get a request whenever user tap an <b>inline keypad</b>
   - <b>message_id</b> is the unique ID of this message 
   - <b>chat_id</b> is the unique ID of this chat with user <b>(You should use this value when you want to send him back anything)</b>
 
-And when you get request, you can use these [methods](usage.md) for sending request to bot.
+And when you get request, you can use these [methods](methods.md) for sending request to bot.
 <hr/>

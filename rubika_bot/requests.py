@@ -2,7 +2,7 @@ import json
 import requests
 from typing import Literal
 from exceptions import APIException
-from schemas import Bot, Keypad, Chat, Update
+from models import Bot, Keypad, Chat, Update
 
 
 def _send_request(token: str, method: str, data: dict) -> dict:
