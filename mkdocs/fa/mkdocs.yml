@@ -1,6 +1,9 @@
 site_name: Rubika Bot Father
 theme:
   name: material
+  font:
+    text: B Nazanin
+
   palette:
   - scheme: default
     primary: purple
@@ -27,7 +30,8 @@ theme:
 nav:
 - خانه: index.md
 - معرفی: introduction.md
-- طریقه استفاده: usage.md
+- طریقه استفاده: methods.md
+- مدل ها: models.md
 
 repo_name: AliRn76/rubika-bot
 repo_url: https://github.com/AliRn76/rubika-bot

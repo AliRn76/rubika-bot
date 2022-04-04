@@ -1,209 +1,310 @@
 
 
-- #### Get Your Bot Information
+### Get Your Bot Information
+- Input
 
-```python
-from rubika_bot.requests import get_me
-from rubika_bot.models import Bot
+    | Field        | Type   | Description       |
+    |--------------|--------|-------------------|
+    | `token`      | `str`  | Token of your bot |
 
-bot: Bot = get_me(token=...)
-```
+- Output
 
-- #### Send Start Keypad
+    | Field  | Type   | Description |
+    |--------|--------|-------------|
+    | `bot`  | `Bot`  | Bot Object  |
 
-```python
-from rubika_bot.requests import send_message
-from rubika_bot.models import Keypad, KeypadRow, Button
+- Example
 
-b1 = Button(id='100', type='Simple', button_text='Add Account')
-b2 = Button(id='101', type='Simple', button_text='Edit Account')
-b3 = Button(id='102', type='Simple', button_text='Remove Account')
-keypad = Keypad(
-    rows=[
-        KeypadRow(buttons=[b1]),
-        KeypadRow(buttons=[b2, b3])
-    ],
-    resize_keyboard=True,
-    on_time_keyboard=False
-)
-send_message(
-    token=...,
-    chat_id=...,
-    text='Welcome',
-    chat_keypad_type='New',
-    chat_keypad=keypad
-)
-```
+    ```python
+    from rubika_bot.requests import get_me
+    from rubika_bot.models import Bot
+      
+    bot: Bot = get_me(token='SUPER_SECRET_TOKEN')
+    ```
 
-- #### Send Inline Keypad
+### Send Keypad
+- Input
 
-```python
-from rubika_bot.requests import send_message
-from rubika_bot.models import Keypad, KeypadRow, Button
+    | Field                   | Type            | Description                                     |
+    |-------------------------|-----------------|-------------------------------------------------|
+    | `token`                 | `str`           | Token of your bot                               |
+    | `chat_id`               | `str`           | Unique ID of Chat                               |
+    | `text`                  | `str`           | Text of Message                                 |
+    | `chat_keypad_type`      | `str`           | can be(None, New, Remove)<br/>default is None   |
+    | `chat_keypad`           | `Keypad`        | Bot Object                                      |
+    | `disable_notification`  | `bool`          | Default is False                                |
+    | `reply_to_message_id`   | `Optional[str]` | ID of Message                                   |
 
-b1 = Button(id='100', type='Simple', button_text='Add Account')
-b2 = Button(id='101', type='Simple', button_text='Edit Account')
-b3 = Button(id='102', type='Simple', button_text='Remove Account')
-keypad = Keypad(
-    rows=[
-        KeypadRow(buttons=[b1]),
-        KeypadRow(buttons=[b2, b3])
-    ],
-)
-send_message(
-    token=...,
-    chat_id=...,
-    text='Welcome',
-    inline_keypad=keypad
-)
-```
+- Output
 
-- #### Send Message
+    | Field         | Type   | Description              |
+    |---------------|--------|--------------------------|
+    | `message_id`  | `str`  | New unique ID of message |
 
-```python
-from rubika_bot.requests import send_message
+- Example
+ 
+    ```python
+    from rubika_bot.requests import send_message
+    from rubika_bot.models import Keypad, KeypadRow, Button
+    
+    b1 = Button(id='100', type='Simple', button_text='Add Account')
+    b2 = Button(id='101', type='Simple', button_text='Edit Account')
+    b3 = Button(id='102', type='Simple', button_text='Remove Account')
+    keypad = Keypad(
+        rows=[
+            KeypadRow(buttons=[b1]),
+            KeypadRow(buttons=[b2, b3])
+        ],
+        resize_keyboard=True,
+        on_time_keyboard=False
+    )
+    send_message(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        text='Welcome',
+        chat_keypad_type='New',
+        chat_keypad=keypad
+    )
+    ```
 
-send_message(
-    token=...,
-    chat_id=...,
-    text='Hello World',
-)
-```
+### Send Inline Keypad
+- Input
 
-- #### Send Poll
+    | Field                   | Type             | Description        |
+    |-------------------------|------------------|--------------------|
+    | `token`                 | `str`            | Token of your bot  |
+    | `chat_id`               | `str`            | Unique ID of Chat  |
+    | `text`                  | `str`            | Text of Message    |
+    | `disable_notification`  | `bool`           | Default is False   |
+    | `reply_to_message_id`   | `Optional[str]`  | ID of Message      |
+    | `inline_keypad`         | `Keypad`         | ...                |
 
-```python
-from rubika_bot.requests import send_poll
+- Output
 
-send_poll(
-    token=...,
-    chat_id=...,
-    question='Do you have any question?',
-    options=['yes', 'no']
-)
-```
+    | Field         | Type   | Description              |
+    |---------------|--------|--------------------------|
+    | `message_id`  | `str`  | New unique ID of message |
 
-- #### Send Location
+- Example
 
-```python
-from rubika_bot.requests import send_location
+    ```python
+    from rubika_bot.requests import send_message
+    from rubika_bot.models import Keypad, KeypadRow, Button
+    
+    b1 = Button(id='100', type='Simple', button_text='Add Account')
+    b2 = Button(id='101', type='Simple', button_text='Edit Account')
+    b3 = Button(id='102', type='Simple', button_text='Remove Account')
+    keypad = Keypad(
+        rows=[
+            KeypadRow(buttons=[b1]),
+            KeypadRow(buttons=[b2, b3])
+        ],
+    )
+    send_message(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        text='Welcome',
+        inline_keypad=keypad
+    )
+    ```
 
-send_location(
-    token=...,
-    chat_id=...,
-    latitude='35.759662741892626',
-    longitude='51.4036344416759'
-)
-```
+### Send Message
+- Input
 
-- #### Send Sticker
+    | Field                   | Type             | Description       |
+    |-------------------------|------------------|-------------------|
+    | `token`                 | `str`            | Token of your bot |
+    | `chat_id`               | `str`            | Unique ID of Chat |
+    | `text`                  | `str`            | Text of Message   |
+    | `disable_notification`  | `bool`           | Default is False  |
+    | `reply_to_message_id`   | `Optional[str]`  | ID of Message     |
 
-```python
-from rubika_bot.requests import send_sticker
+- Output
 
-send_sticker(
-    token=...,
-    chat_id=...,
-    sticker_id=...,
-)
-```
+    | Field         | Type   | Description              |
+    |---------------|--------|--------------------------|
+    | `message_id`  | `str`  | New unique ID of message |
 
-- #### Send Sticker
+- Example
 
-```python
-from rubika_bot.requests import send_contact
+    ```python
+    from rubika_bot.requests import send_message
+    
+    send_message(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        text='Hello World',
+    )
+    ```
 
-send_contact(
-    token=...,
-    chat_id=...,
-    first_name='Ali',
-    last_name='Rn',
-    phone_number='09038754321'
-)
-```
+### Send Poll
+- Input
 
-- #### Get Chat Information
+    | Field      | Type         | Description          |
+    |------------|--------------|----------------------|
+    | `token`    | `str`        | Token of your bot    |
+    | `chat_id`  | `str`        | Unique ID of Chat    |
+    | `question` | `str`        | Text of Question     |
+    | `options`  | `list[str]`  | Options of Question  |
 
-```python
-from rubika_bot.requests import get_chat
-from rubika_bot.models import Chat
+- Output
 
-chat: Chat = get_chat(
-    token=...,
-    chat_id=...,
-)   
-```
+    | Field        | Type   | Description              |
+    |--------------|--------|--------------------------|
+    | `message_id` | `str`  | New unique ID of Message |
 
-- #### Get Last 10 Updates
+- Example
 
-```python
-from rubika_bot.requests import get_updates
-from rubika_bot.models import Update
+    ```python
+    from rubika_bot.requests import send_poll
+    
+    send_poll(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        question='Do you have any question?',
+        options=['yes', 'no']
+    )
+    ```
 
-updates, _ = get_updates(
-    token=...,
-    limit=10,
-)
-```
+### Send Location
 
-- #### Forward Message
+- Example
 
-```python
-from rubika_bot.requests import forward_message
+    ```python
+    from rubika_bot.requests import send_location
+    
+    send_location(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        latitude='35.759662741892626',
+        longitude='51.4036344416759'
+    )
+    ```
 
-forward_message(
-    token=...,
-    from_chat_id=...,
-    message_id=...,
-    to_chat_id=...
-)
-```
+### Send Sticker
 
-- #### Edit Message Text
+- Example
 
-```python
-from rubika_bot.requests import edit_message_text
+    ```python
+    from rubika_bot.requests import send_sticker
+    
+    send_sticker(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        sticker_id='STICKER_ID',
+    )
+    ```
 
-edit_message_text(
-    token=...,
-    chat_id=...,
-    message_id=...,
-    text='New Message Text'
-)
-```
+### Send Sticker
 
-- #### Edit Inline Keypad
+- Example
 
-```python
-from rubika_bot.requests import edit_message_keypad
-from rubika_bot.models import Button, Keypad, KeypadRow
+    ```python
+    from rubika_bot.requests import send_contact
+    
+    send_contact(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        first_name='Ali',
+        last_name='Rn',
+        phone_number='09038754321'
+    )
+    ```
 
-b1 = Button(id='100', type='Simple', button_text='Add Account')
-b2 = Button(id='101', type='Simple', button_text='Edit Account')
-b3 = Button(id='102', type='Simple', button_text='Remove Account')
-new_keypad = Keypad(
-    rows=[
-        KeypadRow(buttons=[b1]),
-        KeypadRow(buttons=[b2, b3])
-    ],
-)
+### Get Chat Information
 
-edit_message_keypad(
-    token=...,
-    chat_id=...,
-    message_id=...,
-    inline_keypad=new_keypad
-)
-```
+- Example
 
-- #### Delete Message
+    ```python
+    from rubika_bot.requests import get_chat
+    from rubika_bot.models import Chat
+    
+    chat: Chat = get_chat(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+    )   
+    ```
 
-```python
-from rubika_bot.requests import delete_message
+### Get Last 10 Updates
 
-delete_message(
-    token=...,
-    chat_id=...,
-    message_id=...,
-)
-```
+- Example 
+
+    ```python
+    from rubika_bot.requests import get_updates
+    from rubika_bot.models import Update
+    
+    updates, _ = get_updates(
+        token='SUPER_SECRET_TOKEN',
+        limit=10,
+    )
+    ```
+
+### Forward Message
+
+- Example
+
+    ```python
+    from rubika_bot.requests import forward_message
+    
+    forward_message(
+        token='SUPER_SECRET_TOKEN',
+        from_chat_id='FIRST_CHAT_ID',
+        message_id='MESSAGE_ID',
+        to_chat_id='SECOND_CHAT_ID'
+    )
+    ```
+
+### Edit Message Text
+
+- Example
+
+    ```python
+    from rubika_bot.requests import edit_message_text
+    
+    edit_message_text(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        message_id='MESSAGE_ID',
+        text='New Message Text'
+    )
+    ```
+
+### Edit Inline Keypad
+
+- Example
+
+    ```python
+    from rubika_bot.requests import edit_message_keypad
+    from rubika_bot.models import Button, Keypad, KeypadRow
+    
+    b1 = Button(id='100', type='Simple', button_text='Add Account')
+    b2 = Button(id='101', type='Simple', button_text='Edit Account')
+    b3 = Button(id='102', type='Simple', button_text='Remove Account')
+    new_keypad = Keypad(
+        rows=[
+            KeypadRow(buttons=[b1]),
+            KeypadRow(buttons=[b2, b3])
+        ],
+    )
+    
+    edit_message_keypad(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        message_id='MESSAGE_ID',
+        inline_keypad=new_keypad
+    )
+    ```
+
+### Delete Message
+
+- Example
+
+    ```python
+    from rubika_bot.requests import delete_message
+    
+    delete_message(
+        token='SUPER_SECRET_TOKEN',
+        chat_id='CHAT_ID',
+        message_id='MESSAGE_ID',
+    )
+    ```
