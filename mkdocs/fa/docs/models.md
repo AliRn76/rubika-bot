@@ -111,84 +111,102 @@
 
 
 ### ButtonSelection
-
-| فیلد                | نوع                                                | توضیحات                   |
-|----------------------|-----------------------------------------------------|-------------------------------|
-| `selection_id`       | `str`                                               | Unique ID of Button Selection |
-| `search_type`        | `Union[str, None]`                                  | can be (None, Local, Api)     | 
-| `get_type`           | `str`                                               | can be (Local, Api)           | 
-| `items`              | [`list[ButtonSelectionItem]`](#buttonselectionitem) | ...                           | 
-| `is_multi_selection` | `bool`                                              |                               | 
-| `columns_count`      | `str`                                               |                               | 
-| `title`              | `str`                                               |                               | 
+|  فیلد                | نوع                                                 | توضیحات                            |
+|----------------------|-----------------------------------------------------|------------------------------------|
+| `selection_id`       | `str`                                               | شناسه مربوط به لیست                |
+| `search_type`        | `str`                                               | نوع جستجو                          | 
+| `get_type`           | `str`                                               | نوع دریافت آیتم‌های لیست           | 
+| `items`              | [`list[ButtonSelectionItem]`](#buttonselectionitem) | آرایه‌ای از ButtonSelectionItem ها | 
+| `is_multi_selection` | `bool`                                              | امکان انتخاب چند آیتم              | 
+| `columns_count`      | `str`                                               | تعداد ستون‌های لیست                | 
+| `title`              | `str`                                               | عنوان                              |
 
 ### ButtonCalendar
+| فیلد             | نوع                                                 | توضیحات            |
+|------------------|-----------------------------------------------------|--------------------|
+| `default_value`  | `Optional[str]`                                     | مقدار پیشفرض تقویم |
+| `type`           | [`ButtonCalendarTypeEnum`](#buttoncalendartypeenum) | نوع تقویم          | 
+| `min_year`       | `str`                                               | مقدار کمینه تقویم  | 
+| `max_year`       | `str`                                               | مقدار بیشینه تقویم | 
+| `title`          | `str`                                               | عنوان دکمه         | 
 
-| فیلد           | نوع                                                | توضیحات                         |
-|-----------------|-----------------------------------------------------|-------------------------------------|
-| `default_value` | `str`                                               | ...                                 |
-| `type`          | `Union[str, None]`                                  | can be (DatePersian, DateGregorian) | 
-| `min_year`      | `str`                                               | ...                                 | 
-| `max_year`      | [`list[ButtonSelectionItem]`](#buttonselectionitem) | ...                                 | 
-| `title`         | `str`                                               | ...                                 | 
 
 ### ButtonNumberPicker
-
-| فیلد           | نوع               | توضیحات                         |
-|-----------------|--------------------|-------------------------------------|
-| `min_value`     | `int`              | ...                                 |
-| `max_value`     | `int`              | can be (DatePersian, DateGregorian) | 
-| `default_value` | `Union[str, None]` | ...                                 | 
-| `title`         | `Optional[str]`    | ...                                 | 
+| فیلد             | نوع             | توضیحات      |
+|------------------|-----------------|--------------|
+| `min_value`      | `str`           | مقدار کمینه  |
+| `max_value`      | `str`           | مقدار بیشینه | 
+| `default_value`  | `Optional[str]` | مقدار پیشفرض | 
+| `title`          | `str`           | عنوان دکمه   | 
 
 ### ButtonStringPicker
-
-| فیلد           | نوع             | توضیحات |
-|-----------------|------------------|-------------|
-| `items`         | `list[str]`      | ...         |
-| `default_value` | `Optional[str]`  | ...         | 
-| `title`         | `Optional[str]`  | ...         | 
+| فیلد             | نوع               | توضیحات            |
+|------------------|-------------------|--------------------|
+| `items`          | `list[str]`       | آرایه‌ای از متن‌ها |
+| `default_value`  | `Optional[str]`   | مقدار پیشفرض       | 
+| `title`          | `Optional[str]`   | عنوان دکمه         | 
 
 ### ButtonTextbox
-
-| فیلد           | نوع            | توضیحات                    |
-|-----------------|-----------------|--------------------------------|
-| `type_line`     | `str`           | can be (SingleLine, MultiLine) |
-| `type_keypad`   | `str`           | can be (String, Number)        | 
-| `place_holder`  | `Optional[str]` | ...                            | 
-| `title`         | `Optional[str]` | ...                            | 
-| `default_value` | `Optional[str]` | ...                            | 
+| فیلد             | نوع                                                           | توضیحات            |
+|------------------|---------------------------------------------------------------|--------------------|
+| `type_line`      | [`ButtonTextboxTypeLineEnum`](#buttontextboxtypelineenum)     | نوع وارد کردن پیام |
+| `type_keypad`    | [`ButtonTextboxTypeKeypadEnum`](#buttontextboxtypekeypadenum) | نوع صفحه کلید      | 
+| `place_holder`   | `Optional[str]`                                               | ...                | 
+| `title`          | `Optional[str]`                                               | عنوان دکمه         | 
+| `default_value`  | `Optional[str]`                                               | مقدار پیشفرض       | 
 
 ### ButtonLocation
-
-| فیلد                       | نوع                     | توضیحات         |
-|-----------------------------|--------------------------|---------------------|
-| `default_pointer_location`  | [`Location`](#location)  | ...                 |
-| `default_map_location`      | [`Location`](#location)  | ...                 | 
-| `type`                      | `str`                    | can be Picker, View | 
-| `title`                     | `str`                    | ...                 | 
-| `location_image_url`        | `str`                    | ...                 | 
+| فیلد                        | نوع                                                  | توضیحات            |
+|-----------------------------|------------------------------------------------------|--------------------|
+| `default_pointer_location`  | [`Location`](#location)                              | ...                |
+| `default_map_location`      | [`Location`](#location)                              | موقعیت پیشفرض نقشه | 
+| `type`                      | [`ButtonLocationTypeEnum`](#buttonlocationtypeenum)  | نوع نقشه           | 
+| `title`                     | `Optional[str]`                                      | عنوان دکمه         | 
+| `location_image_url`        | `str`                                                | ...                | 
 
 ### AuxData
-
-| فیلد       | نوع   | توضیحات         |
-|-------------|--------|---------------------|
-| `start_id`  | `str`  | ...                 |
-| `button_id` | `str`  | ...                 |
+|  فیلد       |  نوع  | توضیحات               |
+|-------------|-------|-----------------------|
+| `start_id`  | `str` | شناسه جهت دسترسی سریع |
+| `button_id` | `str` | شناسه دکمه            |
 
 ### Button
+|  فیلد                  | نوع                                         | توضیحات    |
+|------------------------|---------------------------------------------|------------|
+| `id`                   | `str`                                       | شناسه دکمه |
+| `type`                 | [`ButtonTypeEnum`](#buttontypeenum)         | نوع دکمه   |
+| `button_text`          | `str`                                       | متن دکمه   |
+| `button_selection`     | [`ButtonSelection`](#buttonselection)       | ...        |
+| `button_calendar`      | [`ButtonCalendar`](#buttoncalendar)         | ...        |
+| `button_number_picker` | [`ButtonNumberPicker`](#buttonnumberpicker) | ...        |
+| `button_string_picker` | [`ButtonStringPicker`](#buttonstringpicker) | ...        |
+| `button_location`      | [`ButtonLocation`](#buttonlocation)         | ...        |
+| `button_textbox`       | [`ButtonTextbox`](#buttontextbox)           | ...        |
 
-| فیلد                  | نوع                                        | توضیحات                                                                                                                                                                                                                                           |
-|------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                   | `str`                                       | Unique ID of Button                                                                                                                                                                                                                                   |
-| `type`                 | `str`                                       | can be (Simple, Selection, Calendar, NumberPicker, StringPicker, Location, Payment, CameraImage, CameraVideo, GalleryImage, GalleryVideo, File, Audio, RecordAudio, MyPhoneNumber, MyLocation, Textbox, Link, AskMyPhoneNumber, AskLocation, Barcode) |
-| `button_text`          | `str`                                       | ...                                                                                                                                                                                                                                                   |
-| `button_selection`     | [`ButtonSelection`](#buttonselection)       | ...                                                                                                                                                                                                                                                   |
-| `button_calendar`      | [`ButtonCalendar`](#buttoncalendar)         | ...                                                                                                                                                                                                                                                   |
-| `button_number_picker` | [`ButtonNumberPicker`](#buttonnumberpicker) | ...                                                                                                                                                                                                                                                   |
-| `button_string_picker` | [`ButtonStringPicker`](#buttonstringpicker) | ...                                                                                                                                                                                                                                                   |
-| `button_location`      | [`ButtonLocation`](#buttonlocation)         | ...                                                                                                                                                                                                                                                   |
-| `button_textbox`       | [`ButtonTextbox`](#buttontextbox)           | ...                                                                                                                                                                                                                                                   |
+### ButtonTypeEnum
+| فیلد               |  نوع  | توضیحات                             |
+|--------------------|-------|-------------------------------------|
+| `Simple`           | `str` | نمایش دکمه به صورت معمولی           |
+| `Selection`        | `str` | نمایش دکمه به صورت لیست             |
+| `Calendar`         | `str` | نمایش دکمه به صورت تقویم            |
+| `NumberPicker`     | `str` | نمایش دکمه به صورت لیستی از اعداد   |
+| `StringPicker`     | `str` | نمایش دکمه به صورت لیستی از string  |
+| `Location`         | `str` | ...                                 |
+| `Payment`          | `str` | نمایش دکمه جهت پرداخت               |
+| `CameraImage`      | `str` | نمایش دکمه جهت عکسبرداری از دوربین  |
+| `CameraVideo`      | `str` | نمایش دکمه جهت فیلمبرداری از دوربین |
+| `GalleryImage`     | `str` | نمایش دکمه جهت ارسال عکس از گالری   |
+| `GalleryVideo`     | `str` | نمایش دکمه جهت ارسال فیلم از گالری  |
+| `File`             | `str` | نمایش دکمه جهت ارسال فایل           |
+| `Audio`            | `str` | نمایش دکمه جهت ارسال صوت            |
+| `RecordAudio`      | `str` | نمایش دکمه جهت ضبط صوت              |
+| `MyPhoneNumber`    | `str` | ...                                 |
+| `MyLocation`       | `str` | ...                                 |
+| `Textbox`          | `str` | نمایش دکمه جهت وارد کردن پیام متنی  |
+| `Link`             | `str` | نمایش دکمه جهت ارسال آدرس اینترنتی  |
+| `AskMyPhoneNumber` | `str` | ...                                 |
+| `AskLocation`      | `str` | ...                                 |
+| `Barcode`          | `str` | نمایش دکمه جهت اسکن بارکد           |
 
 ### KeypadRow
 
@@ -301,4 +319,42 @@
 |---------------|-----------------------------------|
 | `TextOnly`    | نمایش دکمه به صورت متن            |
 | `TextImgThu`  | نمایش دکمه به صورت متن و عکس کوچک | 
-| `TextImgBig`  | نمایش دکمه به صورت متن و عکس بزرگ | 
+| `TextImgBig`  | نمایش دکمه به صورت متن و عکس بزرگ |  
+
+### ButtonSelectionSearchEnum
+| فیلد    | توضیحات                                                          |
+|---------|------------------------------------------------------------------|
+| `None`  | حالت پیشفرض                                                      |
+| `Local` | جستجو در آیتم‌های لیست با استفاده از مقادیر ارسالی در فیلد items | 
+| `Api`   | جستجو در آیتم‌های لیست از طریق Api                               |
+
+### ButtonSelectionGetEnum
+| فیلد    | توضیحات                                                       |
+|---------|---------------------------------------------------------------|
+| `Local` | نمایش آیتم‌های لیست با استفاده از مقادیر ارسالی در فیلد items | 
+| `Api`   | جستجو در آیتم‌های لیست از طریق Api                            |
+
+### ButtonCalendarTypeEnum
+| فیلد            | توضیحات                    |
+|-----------------|----------------------------|
+| `DatePersian`   | نمایش تقویم به فرمت شمسی   |
+| `DateGregorian` | نمایش تقویم به فرمت میلادی | 
+
+### ButtonTextboxTypeKeypadEnum
+| فیلد     | نوع    | توضیحات                      |
+|----------|--------|------------------------------|
+| `String` | `str`  | امکان ارسال تمامی کاراکتر ها |
+| `Number` | `str`  | امکان ارسال کاراکترهای عددی  | 
+
+### ButtonTextboxTypeLineEnum
+| فیلد         | نوع    | توضیحات                      |
+|--------------|--------|------------------------------|
+| `SingleLine` | `str`  | نوشتن پیام متنی در یک سطر    |
+| `MultiLine`  | `str`  | نوشتن پیام متنی در چندین سطر | 
+
+### ButtonLocationTypeEnum
+| فیلد      | توضیحات |
+|-----------|---------|
+| `Picker`  | ...     |
+| `View`    | ...     | 
+
