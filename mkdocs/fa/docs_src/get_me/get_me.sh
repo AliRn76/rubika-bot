@@ -1,0 +1,1 @@
+curl -X POST https://messengerg2b1.iranlms.ir/v3/{token}/getMe

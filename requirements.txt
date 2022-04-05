@@ -3,3 +3,7 @@ pydantic
 
 build
 twine
+
+mkdocs
+mkdocs-material
+mdx-include

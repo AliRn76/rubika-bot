@@ -27,10 +27,10 @@
 
 
 ### PaymentStatus
-| فیلد          |  نوع  | توضیحات                |
-|---------------|-------|------------------------|
-| `payment_id`  | `str` | شناسه پرداخت           |
-| `status`      | `str` | can be (Paid, NotPaid) |
+| فیلد          | نوع                                       | توضیحات      |
+|---------------|-------------------------------------------|--------------|
+| `payment_id`  | `str`                                     | شناسه پرداخت |
+| `status`      | [`PaymentStatusEnum`](#paymentstatusenum) | نوع پرداخت   |
 
 
 ### MessageTextUpdate
@@ -209,72 +209,66 @@
 | `Barcode`          | `str` | نمایش دکمه جهت اسکن بارکد           |
 
 ### KeypadRow
-
-| فیلد      | نوع                      | توضیحات       |
-|------------|---------------------------|-------------------|
-| `buttons`  | [`list[Button]`](#button) | List of Buttons   |
+| فیلد       |  نوع                      | توضیحات             |
+|------------|---------------------------|---------------------|
+| `buttons`  | [`list[Button]`](#button) | آرایه‌ای از دکمه‌ها |
 
 ### Keypad
-
-| فیلد               | نوع                            | توضیحات  |
-|---------------------|---------------------------------|--------------|
-| `rows`              | [`list[KeypadRow]`](#keypadrow) | List of Rows |
-| `resize_keyboard`   | `bool`                          | ...          |
-| `on_time_keyboard`  | `bool`                          | ...          |
+| فیلد                 |  نوع                            | توضیحات                    |
+|----------------------|---------------------------------|----------------------------|
+| `rows`               | [`list[KeypadRow]`](#keypadrow) | آرایه‌ای از ردیف keypad ها |
+| `resize_keyboard`    | `bool`                          | ...                        |
+| `on_time_keyboard`   | `bool`                          | ...                        |
 
 ### MessageKeypadUpdate
-
-| فیلد            | نوع                | توضیحات       |
-|------------------|---------------------|-------------------|
-| `message_id`     | `str`               | ID of Message     |
-| `inline_keypad`  | [`Keypad`](#keypad) | New Inline Keypad |
+|  فیلد           | نوع                 | توضیحات     |
+|-----------------|---------------------|-------------|
+| `message_id`    | `str`               | شناسه پیام  |
+| `inline_keypad` | [`Keypad`](#keypad) | keypad جدید |
 
 
 ### Message
-
-| فیلد                 | نوع                                | توضیحات          |
-|-----------------------|-------------------------------------|----------------------|
-| `message_id`          | `str`                               | Unique ID of Message |
-| `text`                | `str`                               | Text of Message      |
-| `time`                | `int`                               | Unix Time            |
-| `is_edited`           | `bool`                              | ...                  |
-| `sender_type`         | `str`                               | can be (User, Bot)   |
-| `sender_id`           | `str`                               | ID of Sender (User)  |
-| `aux_data`            | [`AuxData`](#auxdata)               | ...                  |
-| `file`                | [`File`](#file)                     | ...                  |
-| `reply_to_message_id` | `str`                               | ...                  |
-| `forwarded_from`      | [`ForwardedFrom`](#forwardedfrom)   | ...                  |
-| `forwarded_no_link`   | `str`                               | ...                  |
-| `location`            | [`Location`](#location)             | ...                  |
-| `sticker`             | [`Sticker`](#sticker)               | ...                  |
-| `contact_message`     | [`ContactMessage`](#contactmessage) | ...                  |
-| `poll`                | [`Poll`](#poll)                     | ...                  |
-| `live_location`       | [`LiveLocation`](#livelocation)     | ...                  |
+|  فیلد                 | نوع                                       | توضیحات             |
+|-----------------------|-------------------------------------------|---------------------|
+| `message_id`          | `str`                                     | شناسه پیام          |
+| `text`                | `str`                                     | متن پیام            |
+| `time`                | `int`                                     | زمان                |
+| `is_edited`           | `bool`                                    | آیا ویرایش شده است؟ |
+| `sender_type`         | [`MessageSenderEnum`](#messagesenderenum) | نوع فرستنده         |
+| `sender_id`           | `str`                                     | شناسه فرستنده       |
+| `aux_data`            | [`AuxData`](#auxdata)                     | ...                 |
+| `file`                | [`File`](#file)                           | فایل                |
+| `reply_to_message_id` | `str`                                     | در جوابِ پیامِ؟     |
+| `forwarded_from`      | [`ForwardedFrom`](#forwardedfrom)         | فوروارد شده از‌؟    |
+| `forwarded_no_link`   | `str`                                     | ...                 |
+| `location`            | [`Location`](#location)                   | موقعیت مکانی        |
+| `sticker`             | [`Sticker`](#sticker)                     | استیکر              |
+| `contact_message`     | [`ContactMessage`](#contactmessage)       | ...                 |
+| `poll`                | [`Poll`](#poll)                           | نظرسنجی             |
+| `live_location`       | [`LiveLocation`](#livelocation)           | موقعیت مکانی فعلی   |
 
 
 ### Update
-
-| فیلد                | نوع                                        | توضیحات                                                                                 |
-|----------------------|---------------------------------------------|---------------------------------------------------------------------------------------------|
-| `type`               | `str`                                       | can be (UpdatedMessage, NewMessage, RemovedMessage, StartedBot, StoppedBot, UpdatedPayment) |
-| `chat_id`            | `str`                                       | ID of Chat                                                                                  |
-| `removed_message_id` | `Optional[str]`                             | ...                                                                                         |
-| `new_message`        | [`Message`](#message)                       | ...                                                                                         |
-| `updated_message`    | [`Optional[Message]`](#message)             | can be (User, Bot)                                                                          |
-| `updated_payment`    | [`Optional[PaymentStatus]`](#paymentstatus) | ID of Sender (User)                                                                         |
+|  فیلد                | نوع                                         | توضیحات            |
+|----------------------|---------------------------------------------|--------------------|
+| `type`               | [`UpdateTypeEnum`](#updatetypeenum)         | نوع آپدیت          |
+| `chat_id`            | `str`                                       | شناسه چت           |
+| `removed_message_id` | `Optional[str]`                             | شناسه پیام پاک شده |
+| `new_message`        | [`Message`](#message)                       | پیام جدید          |
+| `updated_message`    | [`Optional[Message]`](#message)             | پیام ویرایش شده    |
+| `updated_payment`    | [`Optional[PaymentStatus]`](#paymentstatus) | ...                |
 
 
 ### InlineMessage
-
-| فیلد        | نوع                              | توضیحات                    |
-|--------------|-----------------------------------|--------------------------------|
-| `sender_id`  | `str`                             | ID of Sender (User)            |
-| `text`       | `str`                             | Text of Message (can be empty) |
-| `file`       | `File`                            | ...                            |
-| `location`   | [`Optional[Location]`](#location) | ...                            |
-| `aux_data`   | [`Optional[AuxData]`](#auxdata)   | ...                            |
-| `message_id` | `str`                             | ID of Message                  |
-| `chat_id`    | `str`                             | ID of Chat                     |
+|  فیلد        | نوع                               | توضیحات       |
+|--------------|-----------------------------------|---------------|
+| `sender_id`  | `str`                             | شناسه فرستنده |
+| `text`       | `str`                             | متن           |
+| `file`       | `Optional[File]`                  | فایل          |
+| `location`   | [`Optional[Location]`](#location) | ...           |
+| `aux_data`   | [`Optional[AuxData]`](#auxdata)   | ...           |
+| `message_id` | `str`                             | شناسه‌ی پیام  |
+| `chat_id`    | `str`                             | شناسه‌ی چت    |
 
 
 
@@ -358,3 +352,25 @@
 | `Picker`  | ...     |
 | `View`    | ...     | 
 
+### MessageSenderEnum
+| فیلد    | توضیحات |
+|---------|---------|
+| `User`  | کاربر   |
+| `Bot`   | بات     |
+
+### UpdateTypeEnum
+|  فیلد            | توضیحات            |
+|------------------|--------------------|
+| `UpdatedMessage` | ویرایش پیام        |
+| `NewMessage`     | پیام جدید          |
+| `RemovedMessage` | حذف پیام           |
+| `StartedBot`     | شروع بات           |
+| `StoppedBot`     | توقف بات           |
+| `UpdatedPayment` | به روزرسانی پرداخت |
+
+### ChatKeypadTypeEnum
+| فیلد         | توضیحات                |
+|--------------|------------------------|
+| `None`       | مقدار پیشفرض           |
+| `New`        | اضافه کردن keypad جدید |
+| `Remove`     | حذف keypad             |

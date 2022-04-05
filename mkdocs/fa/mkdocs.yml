@@ -21,37 +21,49 @@ theme:
   - search.suggest
   - search.highlight
   - content.tabs.link
-  icon:
-    repo: fontawesome/brands/github-alt
-#  logo: img/icon-white.svg
-#  favicon: img/favicon.png
+#  icon:
+#    repo: fontawesome/brands/github-alt
+  logo: img/rubika.png
+  favicon: img/rubika.png
   language: fa
 
 nav:
-- خانه: index.md
-- معرفی: introduction.md
-- طریقه استفاده: methods.md
+- معرفی: index.md
+#- معرفی: introduction.md
+- متد ها: methods.md
 - مدل ها: models.md
 
-repo_name: AliRn76/rubika-bot
-repo_url: https://github.com/AliRn76/rubika-bot
+#repo_name: AliRn76/rubika-bot
+#repo_url: https://github.com/AliRn76/rubika-bot
 
 markdown_extensions:
 - pymdownx.superfences:
     custom_fences:
-    - name: mermaid
-      class: mermaid
-      format: !!python/name:pymdownx.superfences.fence_code_format ''
-#- pymdownx.tabbed:
-#    alternate_style: true
-extra:
-  alternate:
-  - link: /en/
-    name: English
-    lang: en
-  - link: /
-    name: Persian
-    lang: fa
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format ''
+- toc:
+    permalink: true
+- markdown.extensions.codehilite:
+    guess_lang: false
+- mdx_include:
+    base_path: docs
+
+#    custom_fences:
+#    - direction: ltr
+#    - name: mermaid
+#      class: mermaid
+#      format: !!python/name:pymdownx.superfences.fence_code_format {kwds: {mode: generic, tag: pre}}
+- pymdownx.tabbed:
+    alternate_style: true
+#extra:
+#  alternate:
+#  - link: /en/
+#    name: English
+#    lang: en
+#  - link: /
+#    name: Persian
+#    lang: fa
 extra_css:
 - https://fastapi.tiangolo.com/css/termynal.css
 - https://fastapi.tiangolo.com/css/custom.css
