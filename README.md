@@ -1,7 +1,14 @@
 Rubika has created APIs for you that you can use to build your own "bot".
 
 ## Requirements
-- python3.8 +
+```
+python3.8 +
+```
+
+## Installation
+```
+``$ pip install rubika-bot
+```
 
 ## Steps of use
 - First you have to create a bot for yourself with <b/>Bot Father</b>.
@@ -88,4 +95,217 @@ Whenever the user taps on the <b>inline keypad</b>, you receive this type of req
   - <b> message_id: </b> The unique identifier assigned to the message.
   - <b> chat_id: </b> Unique identifier for the conversation between the user and the bot <b> (you must continue to use this identifier.) </b>
 
-[//]: # (  Once you have received the above request from the bot and processed it, you can respond using [these methods]&#40;methods.md&#41;.)
+## Usage
+
+- #### Get Your Bot Information
+
+```python
+from rubika_bot.requests import get_me
+from rubika_bot.models import Bot
+
+bot: Bot = get_me(token=...)
+```
+
+- #### Send Start Keypad
+
+```python
+from rubika_bot.requests import send_message
+from rubika_bot.models import Keypad, KeypadRow, Button
+
+b1 = Button(id='100', type='Simple', button_text='Add Account')
+b2 = Button(id='101', type='Simple', button_text='Edit Account')
+b3 = Button(id='102', type='Simple', button_text='Remove Account')
+keypad = Keypad(
+    rows=[
+        KeypadRow(buttons=[b1]),
+        KeypadRow(buttons=[b2, b3])
+    ],
+    resize_keyboard=True,
+    on_time_keyboard=False
+)
+send_message(
+    token=...,
+    chat_id=...,
+    text='Welcome',
+    chat_keypad_type='New',
+    chat_keypad=keypad
+)
+```
+
+- #### Send Inline Keypad
+
+```python
+from rubika_bot.requests import send_message
+from rubika_bot.models import Keypad, KeypadRow, Button
+
+b1 = Button(id='100', type='Simple', button_text='Add Account')
+b2 = Button(id='101', type='Simple', button_text='Edit Account')
+b3 = Button(id='102', type='Simple', button_text='Remove Account')
+keypad = Keypad(
+    rows=[
+        KeypadRow(buttons=[b1]),
+        KeypadRow(buttons=[b2, b3])
+    ],
+)
+send_message(
+    token=...,
+    chat_id=...,
+    text='Welcome',
+    inline_keypad=keypad
+)
+```
+
+- #### Send Message
+
+```python
+from rubika_bot.requests import send_message
+
+send_message(
+    token=...,
+    chat_id=...,
+    text='Hello World',
+)
+```
+
+- #### Send Poll
+
+```python
+from rubika_bot.requests import send_poll
+
+send_poll(
+    token=...,
+    chat_id=...,
+    question='Do you have any question?',
+    options=['yes', 'no']
+)
+```
+
+- #### Send Location
+
+```python
+from rubika_bot.requests import send_location
+
+send_location(
+    token=...,
+    chat_id=...,
+    latitude='35.759662741892626',
+    longitude='51.4036344416759'
+)
+```
+
+- #### Send Sticker
+
+```python
+from rubika_bot.requests import send_sticker
+
+send_sticker(
+    token=...,
+    chat_id=...,
+    sticker_id=...,
+)
+```
+
+- #### Send Sticker
+
+```python
+from rubika_bot.requests import send_contact
+
+send_contact(
+    token=...,
+    chat_id=...,
+    first_name='Ali',
+    last_name='Rn',
+    phone_number='09038754321'
+)
+```
+
+- #### Get Chat Information
+
+```python
+from rubika_bot.requests import get_chat
+from rubika_bot.models import Chat
+
+chat: Chat = get_chat(
+    token=...,
+    chat_id=...,
+)   
+```
+
+- #### Get Last 10 Updates
+
+```python
+from rubika_bot.requests import get_updates
+from rubika_bot.models import Update
+
+updates, _ = get_updates(
+    token=...,
+    limit=10,
+)
+```
+
+- #### Forward Message
+
+```python
+from rubika_bot.requests import forward_message
+
+forward_message(
+    token=...,
+    from_chat_id=...,
+    message_id=...,
+    to_chat_id=...
+)
+```
+
+- #### Edit Message Text
+
+```python
+from rubika_bot.requests import edit_message_text
+
+edit_message_text(
+    token=...,
+    chat_id=...,
+    message_id=...,
+    text='New Message Text'
+)
+```
+
+- #### Edit Inline Keypad
+
+```python
+from rubika_bot.requests import edit_message_keypad
+from rubika_bot.models import Button, Keypad, KeypadRow
+
+b1 = Button(id='100', type='Simple', button_text='Add Account')
+b2 = Button(id='101', type='Simple', button_text='Edit Account')
+b3 = Button(id='102', type='Simple', button_text='Remove Account')
+new_keypad = Keypad(
+    rows=[
+        KeypadRow(buttons=[b1]),
+        KeypadRow(buttons=[b2, b3])
+    ],
+)
+
+edit_message_keypad(
+    token=...,
+    chat_id=...,
+    message_id=...,
+    inline_keypad=new_keypad
+)
+```
+
+- #### Delete Message
+
+```python
+from rubika_bot.requests import delete_message
+
+delete_message(
+    token=...,
+    chat_id=...,
+    message_id=...,
+)
+```
+
+</div>
+
+## TODO:
+- [x] Change the required python version from 3.10 to 3.8 
