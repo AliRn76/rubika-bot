@@ -97,7 +97,7 @@ def send_location(
         'chat_keypad_type': chat_keypad_type,
     }
 
-    res = _send_request(token=token, method='sendPoll', data=data)
+    res = _send_request(token=token, method='sendLocation', data=data)
     message_id = res['message_id']
     return message_id
 

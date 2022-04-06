@@ -1,6 +1,6 @@
 
 ## گرفتن اطلاعات بات
-
+- متد: ``getMe``
 - ورودی
 
 | فیلد     | نوع    | توضیحات |
@@ -15,13 +15,6 @@
 
 - مثال
 
-    === "Python"
-        <div style="text-align: left">
-        ```python
-        {!> ../docs_src/get_me/get_me.py!}
-        ```
-        </div>
-
     === "cURL"
         <div style="text-align: left">
         ```python
@@ -29,6 +22,13 @@
         ```
         </div>
   
+    === "Python"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/get_me/get_me.py!}
+        ```
+        </div>
+
     === "Python Package"
         <div style="text-align: left">
         ```python
@@ -36,9 +36,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/get_me/get_me_node.js!}
+        ```
+        </div>
+
 
 ## ارسال پیام (Text, Keypad, InlineKeypad)
-
+- متد: ``sendMessage``
 - ورودی
 
 | فیلد                    | نوع                                                    | توضیحات                             |
@@ -81,9 +88,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_message/send_message_node.js!}
+        ```
+        </div>
+
 
 ## ارسال keypad
-
+- متد: ``sendMessage``
 - ورودی
 
 | فیلد                   | نوع                                                   | توضیحات                             |
@@ -125,9 +139,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_keypad/send_keypad_node.js!}
+        ```
+        </div>
+
 
 ## ارسال پیام متنی
-
+- متد: ``sendMessage``
 - ورودی
 
 | فیلد                   | نوع              | توضیحات                             |
@@ -167,9 +188,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_text_message/send_text_message_node.js!}
+        ```
+        </div>
+
 
 ## ارسال نظرسنجی
-
+- متد: ``sendPoll``
 - ورودی
 
 | فیلد       | نوع         | توضیحات        |
@@ -208,9 +236,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_poll/send_poll_node.js!}
+        ```
+        </div>
+
 
 ## ارسال موقعیت مکانی
-
+- متد: ``sendLocation``
 - ورودی
 
 | فیلد                   | نوع                                     | توضیحات                             |
@@ -221,7 +256,7 @@
 | `longitude`            | `str`                                   | طول جغرافیایی                       |
 | `chat_keypad`          | `str`                                   | عرض جغرافیایی                       |
 | `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
-| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | ...                                 |
+| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
 | `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
 | `chat_keypad_type`     | `str`                                   | نوع keypad                          |
 
@@ -254,9 +289,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_location/send_location_node.js!}
+        ```
+        </div>
+
 
 ## ارسال استیکر 
-
+- متد: ``sendSticker``
 - ورودی
 
 | فیلد                   | نوع                                     | توضیحات                             |
@@ -266,7 +308,7 @@
 | `sticker_id`           | `str`                                   | شناسه‌ی استیکر                      |
 | `chat_keypad`          | `str`                                   | عرض جغرافیایی                       |
 | `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
-| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | ...                                 |
+| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
 | `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
 | `chat_keypad_type`     | `str`                                   | نوع keypad                          |
 
@@ -299,9 +341,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_sticker/send_sticker_node.js!}
+        ```
+        </div>
+
 
 ## ارسال مخاطب 
-
+- متد: ``sendContact``
 - ورودی
 
 | فیلد                   | نوع                                     | توضیحات                             |
@@ -313,7 +362,7 @@
 | `phone_number`         | `str`                                   | شماره مخاطب                         |
 | `chat_keypad`          | `str`                                   | عرض جغرافیایی                       |
 | `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
-| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | ...                                 |
+| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
 | `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
 | `chat_keypad_type`     | `str`                                   | نوع keypad                          |
 
@@ -346,15 +395,16 @@
         ```
         </div>
 
-- مثال
-
-    ```python
-    
-    ```
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/send_contact/send_contact_node.js!}
+        ```
+        </div>
 
 
 ## گرفتن اطلاعات چت 
-
+- متد: ``getChat``
 - ورودی
 
 | فیلد                   | نوع                                     | توضیحات                             |
@@ -391,9 +441,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/get_chat/get_chat_node.js!}
+        ```
+        </div>
+
 
 ## گرفتن آخرین آپدیت‌ها 
-
+- متد: ``getUpdates``
 - ورودی
 
 | فیلد         | نوع    | توضیحات |
@@ -431,9 +488,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/get_updates/get_updates_node.js!}
+        ```
+        </div>
+
 
 ## فوروارد کردن پیام 
-
+- متد: ``forwardMessage``
 - ورودی
 
 | فیلد                   | نوع    | توضیحات                             |
@@ -473,9 +537,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/forward_message/forward_message_node.js!}
+        ```
+        </div>
+
 
 ## ویرایش متن پیام 
-
+- متد: ``editMessageText``
 - ورودی
 
 | فیلد                   | نوع    | توضیحات      |
@@ -508,9 +579,16 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/edit_message_text/edit_message_text_node.js!}
+        ```
+        </div>
+
 
 ## ویرایش Inline Keypad 
-
+- متد: ``editMessageKeypad``
 - ورودی
 
 | فیلد         | نوع    | توضیحات    |
@@ -542,6 +620,13 @@
         ```
         </div>
 
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/edit_inline_keypad/edit_inline_keypad_node.js!}
+        ```
+        </div>
+
 ### حذف پیام 
 
 - ورودی
@@ -557,21 +642,28 @@
     === "cURL"
         <div style="text-align: left">
         ```python
-        {!> ../docs_src/edit_inline_keypad/edit_inline_keypad.sh!}
+        {!> ../docs_src/delete_message/delete_message.sh!}
         ```
         </div>
 
     === "Python"
         <div style="text-align: left">
         ```python
-        {!> ../docs_src/edit_inline_keypad/edit_inline_keypad.py!}
+        {!> ../docs_src/delete_message/delete_message.py!}
         ```
         </div>
   
     === "Python Package"
         <div style="text-align: left">
         ```python
-        {!> ../docs_src/edit_inline_keypad/edit_inline_keypad_package.py!}
+        {!> ../docs_src/delete_message/delete_message_package.py!}
+        ```
+        </div>
+
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/delete_message/delete_message_node.js!}
         ```
         </div>
 
