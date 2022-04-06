@@ -7,7 +7,7 @@
 | `user_id`    | `str`                           | شناسه کاربر        |
 | `first_name` | `str`                           | نام کاربر          |
 | `last_name`  | `str`                           | نام خانوادگی کاربر |
-| `title`      | `str`                           | ...                |
+| `title`      | `str`                           | عنوان              |
 | `username`   | `str`                           | نام کاربری         |
 
 ### File

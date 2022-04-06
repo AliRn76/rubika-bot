@@ -252,11 +252,11 @@
 |------------------------|-----------------------------------------|-------------------------------------|
 | `token`                | `str`                                   | توکن                                |
 | `chat_id`              | `str`                                   | شناسه‌ی چت                          |
-| `latitude`             | `str`                                   | متن سوال                            |
+| `latitude`             | `str`                                   | عرض جغرافیایی                       |
 | `longitude`            | `str`                                   | طول جغرافیایی                       |
-| `chat_keypad`          | `str`                                   | عرض جغرافیایی                       |
+| `chat_keypad`          | `str`                                   | keypad                              |
 | `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
-| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
+| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | Keypad                              |
 | `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
 | `chat_keypad_type`     | `str`                                   | نوع keypad                          |
 
@@ -306,7 +306,7 @@
 | `token`                | `str`                                   | توکن                                |
 | `chat_id`              | `str`                                   | شناسه‌ی چت                          |
 | `sticker_id`           | `str`                                   | شناسه‌ی استیکر                      |
-| `chat_keypad`          | `str`                                   | عرض جغرافیایی                       |
+| `chat_keypad`          | `str`                                   | keypad                              |
 | `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
 | `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
 | `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
@@ -360,7 +360,7 @@
 | `first_name`           | `str`                                   | نام مخاطب                           |
 | `last_name`            | `str`                                   | نام‌خانوادگی مخاطب                  |
 | `phone_number`         | `str`                                   | شماره مخاطب                         |
-| `chat_keypad`          | `str`                                   | عرض جغرافیایی                       |
+| `chat_keypad`          | `str`                                   | keypad                              |
 | `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
 | `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
 | `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
@@ -627,7 +627,7 @@
         ```
         </div>
 
-### حذف پیام 
+## حذف پیام 
 
 - ورودی
 
