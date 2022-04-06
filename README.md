@@ -1,5 +1,8 @@
 Rubika has created APIs for you that you can use to build your own "bot".
 
+## Requirements
+- python3.8 +
+
 ## Steps of use
 - First you have to create a bot for yourself with <b/>Bot Father</b>.
 - Hold the token it gives you and use it in the rest of the steps.
@@ -85,4 +88,4 @@ Whenever the user taps on the <b>inline keypad</b>, you receive this type of req
   - <b> message_id: </b> The unique identifier assigned to the message.
   - <b> chat_id: </b> Unique identifier for the conversation between the user and the bot <b> (you must continue to use this identifier.) </b>
 
-  Once you have received the above request from the bot and processed it, you can respond using [these methods](methods.md).
+[//]: # (  Once you have received the above request from the bot and processed it, you can respond using [these methods]&#40;methods.md&#41;.)
