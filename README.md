@@ -7,7 +7,7 @@ python3.8 +
 
 ## Installation
 ```
-``$ pip install rubika-bot
+$ pip install rubika-bot
 ```
 
 ## Steps of use
