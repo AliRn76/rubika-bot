@@ -1,8 +1,8 @@
 import json
 import requests
 from typing import Literal, List, Optional, Tuple
-from exceptions import APIException
-from models import Bot, Keypad, Chat, Update
+from rubika_bot.exceptions import APIException
+from rubika_bot.models import Bot, Keypad, Chat, Update
 
 
 def _send_request(token: str, method: str, data: dict) -> dict:
@@ -63,12 +63,15 @@ def send_poll(
         'chat_id': chat_id,
         'question': question,
         'options': options,
-        'chat_keypad': chat_keypad,
         'disable_notification': disable_notification,
-        'inline_keypad': inline_keypad,
-        'reply_to_message_id': reply_to_message_id,
-        'chat_keypad_type': chat_keypad_type,
     }
+    if chat_keypad:
+        data['chat_keypad'] = chat_keypad.dict()
+        data['chat_keypad_type'] = chat_keypad_type
+    if inline_keypad:
+        data['inline_keypad'] = inline_keypad.dict()
+    if reply_to_message_id:
+        data['reply_to_message_id'] = reply_to_message_id
 
     res = _send_request(token=token, method='sendPoll', data=data)
     message_id = res['message_id']
@@ -90,12 +93,15 @@ def send_location(
         'chat_id': chat_id,
         'latitude': latitude,
         'longitude': longitude,
-        'chat_keypad': chat_keypad,
         'disable_notification': disable_notification,
-        'inline_keypad': inline_keypad,
-        'reply_to_message_id': reply_to_message_id,
-        'chat_keypad_type': chat_keypad_type,
     }
+    if chat_keypad:
+        data['chat_keypad'] = chat_keypad.dict()
+        data['chat_keypad_type'] = chat_keypad_type
+    if inline_keypad:
+        data['inline_keypad'] = inline_keypad.dict()
+    if reply_to_message_id:
+        data['reply_to_message_id'] = reply_to_message_id
 
     res = _send_request(token=token, method='sendLocation', data=data)
     message_id = res['message_id']
@@ -116,12 +122,15 @@ def send_sticker(
     data = {
         'chat_id': chat_id,
         'sticker_id': sticker_id,
-        'chat_keypad': chat_keypad,
         'disable_notification': disable_notification,
-        'inline_keypad': inline_keypad,
-        'reply_to_message_id': reply_to_message_id,
-        'chat_keypad_type': chat_keypad_type,
     }
+    if chat_keypad:
+        data['chat_keypad'] = chat_keypad.dict()
+        data['chat_keypad_type'] = chat_keypad_type
+    if inline_keypad:
+        data['inline_keypad'] = inline_keypad.dict()
+    if reply_to_message_id:
+        data['reply_to_message_id'] = reply_to_message_id
 
     res = _send_request(token=token, method='sendSticker', data=data)
     message_id = res['message_id']
@@ -145,13 +154,16 @@ def send_contact(
         'chat_id': chat_id,
         'last_name': last_name,
         'first_name': first_name,
-        'chat_keypad': chat_keypad,
         'phone_number': phone_number,
-        'inline_keypad': inline_keypad,
-        'chat_keypad_type': chat_keypad_type,
-        'reply_to_message_id': reply_to_message_id,
         'disable_notification': disable_notification,
     }
+    if chat_keypad:
+        data['chat_keypad'] = chat_keypad.dict()
+        data['chat_keypad_type'] = chat_keypad_type
+    if inline_keypad:
+        data['inline_keypad'] = inline_keypad.dict()
+    if reply_to_message_id:
+        data['reply_to_message_id'] = reply_to_message_id
 
     res = _send_request(token=token, method='sendContact', data=data)
     message_id = res['message_id']
@@ -231,13 +243,17 @@ def send_file(
     data = {
         'chat_id': chat_id,
         'file_id': file_id,
-        'chat_keypad': chat_keypad,
         'disable_notification': disable_notification,
-        'inline_keypad': inline_keypad,
-        'reply_to_message_id': reply_to_message_id,
-        'chat_keypad_type': chat_keypad_type,
 
     }
+    if chat_keypad:
+        data['chat_keypad'] = chat_keypad.dict()
+        data['chat_keypad_type'] = chat_keypad_type
+    if inline_keypad:
+        data['inline_keypad'] = inline_keypad.dict()
+    if reply_to_message_id:
+        data['reply_to_message_id'] = reply_to_message_id
+
     res = _send_request(token=token, method='sendFile', data=data)
     return res['message_id']
 
