@@ -187,7 +187,7 @@ class Message(BaseModel):
     sender_type: Literal['User', 'Bot']
     sender_id: str
 
-    aux_data: Optional[AuxData]
+    aux_data: Optional[AuxData] = AuxData()
     file: Optional[File]
     reply_to_message_id: Optional[str]
     forwarded_from: Optional[ForwardedFrom]
@@ -211,7 +211,7 @@ class Update(BaseModel):
 class InlineMessage(BaseModel):
     sender_id: str
     text: str
-    file: File
+    file: Optional[File]
     location: Optional[Location]
     aux_data: AuxData
     message_id: str
