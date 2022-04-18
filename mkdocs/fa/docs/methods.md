@@ -627,8 +627,9 @@
         ```
         </div>
 
-## حذف پیام 
 
+## حذف پیام 
+- متد: ``deleteMessage``
 - ورودی
 
 | فیلد         | نوع   | توضیحات      |
@@ -667,3 +668,165 @@
         ```
         </div>
 
+
+## تنظیم دستورات (commands) 
+- متد: ``setCommands``
+- ورودی
+
+| فیلد           | نوع                                         | توضیحات             |
+|----------------|---------------------------------------------|---------------------|
+| `token`        | `str`                                       | توکن                |
+| `bot_commands` | [`list[BotCommand]`](../models/#botcommand) | آرایه‌ای از دستورات |
+
+- مثال
+
+    === "cURL"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/set_commands/set_commands.sh!}
+        ```
+        </div>
+
+    === "Python"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/set_commands/set_commands.py!}
+        ```
+        </div>
+  
+    === "Python Package"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/set_commands/set_commands_package.py!}
+        ```
+        </div>
+
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/set_commands/set_commands_node.js!}
+        ```
+        </div>
+
+
+## آپدیت آدرس بات (URL Endpoint) 
+- متد: ``updateBotEndpoints``
+- ورودی
+
+| فیلد    | نوع                                                           | توضیحات   |
+|---------|---------------------------------------------------------------|-----------|
+| `token` | `str`                                                         | توکن      |
+| `url`   | `str`                                                         | آدرس جدید |
+| `type`  | [`UpdateEndpointTypeEnum`](../models/#updateendpointtypeenum) | نوع آدرس  |
+
+- مثال
+
+    === "cURL"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/update_bot_endpoint/update_bot_endpoint.sh!}
+        ```
+        </div>
+
+    === "Python"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/update_bot_endpoint/update_bot_endpoint.py!}
+        ```
+        </div>
+  
+    === "Python Package"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/update_bot_endpoint/update_bot_endpoint_package.py!}
+        ```
+        </div>
+
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/update_bot_endpoint/update_bot_endpoint_node.js!}
+        ```
+        </div>
+
+## حذف keypad 
+- متد: ``editChatKeypad``
+- ورودی
+
+| فیلد               | نوع    | توضیحات           |
+|--------------------|--------|-------------------|
+| `token`            | `str`  | توکن              |
+| `chat_id`          | `str`  | شناسه‌ی چت        |
+| `chat_keypad_type` | `str`  |  مقدارِ `Removed` |
+
+- مثال
+
+    === "cURL"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/remove_chat_keypad/remove_chat_keypad.sh!}
+        ```
+        </div>
+
+    === "Python"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/remove_chat_keypad/remove_chat_keypad.py!}
+        ```
+        </div>
+  
+    === "Python Package"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/remove_chat_keypad/remove_chat_keypad_package.py!}
+        ```
+        </div>
+
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/remove_chat_keypad/remove_chat_keypad_node.js!}
+        ```
+        </div>
+
+
+## ویرایش keypad 
+- متد: ``editChatKeypad``
+- ورودی
+
+| فیلد               | نوع                           | توضیحات      |
+|--------------------|-------------------------------|--------------|
+| `token`            | `str`                         | توکن         |
+| `chat_id`          | `str`                         | شناسه‌ی چت   |
+| `chat_keypad`      | [`Keypad`](../models/#keypad) | keypad       |
+| `chat_keypad_type` | `str`                         | مقدارِ `New` |
+
+- مثال
+
+    === "cURL"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/edit_chat_keypad/edit_chat_keypad.sh!}
+        ```
+        </div>
+
+    === "Python"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/edit_chat_keypad/edit_chat_keypad.py!}
+        ```
+        </div>
+  
+    === "Python Package"
+        <div style="text-align: left">
+        ```python
+        {!> ../docs_src/edit_chat_keypad/edit_chat_keypad_package.py!}
+        ```
+        </div>
+
+    === "NodeJs"
+        <div style="text-align: left">
+        ```js
+        {!> ../docs_src/edit_chat_keypad/edit_chat_keypad_node.js!}
+        ```
+        </div>

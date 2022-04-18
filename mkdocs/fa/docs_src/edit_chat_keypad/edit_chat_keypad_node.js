@@ -1,14 +1,13 @@
 var request = require('request');
 var options = {
   'method': 'POST',
-  'url': 'https://messengerg2b1.iranlms.ir/v3/{{token}}/sendMessage',
+  'url': 'https://messengerg2b1.iranlms.ir/v3/{{token}}/editChatKeypad',
   'headers': {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
       "chat_id": chat_id,
       "chat_keypad_type": "New",
-      "text": "Welcome",
       "chat_keypad": {
         "rows": [
           {

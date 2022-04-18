@@ -374,3 +374,12 @@
 | `None`       | مقدار پیشفرض           |
 | `New`        | اضافه کردن keypad جدید |
 | `Remove`     | حذف keypad             |
+
+### UpdateEndpointTypeEnum
+| فیلد                   | توضیحات               |
+|------------------------|-----------------------|
+| `ReceiveUpdate`        | ReceiveUpdate         |
+| `ReceiveInlineMessage` | ReceiveInlineMessage  |
+| `ReceiveQuery`         | ReceiveQuery          |
+| `GetSelectionItem`     | GetSelectionItem      |
+| `SearchSelectionItems` | SearchSelectionItems  |

@@ -1,18 +1,25 @@
 import json
 import requests
-from typing import Literal, List, Optional, Tuple
+from typing import Literal, List, Optional, Tuple, Final, Union
 from rubika_bot.exceptions import APIException
-from rubika_bot.models import Bot, Keypad, Chat, Update
+from rubika_bot.models import Bot, Keypad, Chat, Update, BotCommand
 
 
 def _send_request(token: str, method: str, data: dict) -> dict:
     url = f'https://messengerg2b1.iranlms.ir/v3/{token}/{method}'
-    res = requests.post(url=url, data=json.dumps(data), timeout=5)
+    res = requests.post(url=url, data=json.dumps(data), timeout=10)
     body = json.loads(res.text or '{}')
     if res.status_code != 200 or body.get('status') != 'OK':
-        print(f'{res.status_code = }')
-        raise APIException(f'APIException(status_code: {res.status_code}, body: {body}')
+        raise APIException(f'Response(status_code: {res.status_code}, body: {body}')
     return body['data']
+
+
+def _send_multipart_request(url: str, form_data) -> dict:
+    res = requests.post(url, files=form_data, verify=False)
+    if res.status_code != 200:
+        print(f'\nResponse(status_code: {res.status_code}, body: {res.content})')
+        raise APIException(f'Response(status_code: {res.status_code}, body: {res.content}')
+    return json.loads(res.text or '{}')['data']  # TODO
 
 
 def get_me(token: str) -> Bot:
@@ -61,13 +68,13 @@ def send_poll(
 ) -> str:
     data = {
         'chat_id': chat_id,
-        'question': question,
         'options': options,
+        'question': question,
         'chat_keypad': chat_keypad,
-        'disable_notification': disable_notification,
         'inline_keypad': inline_keypad,
-        'reply_to_message_id': reply_to_message_id,
         'chat_keypad_type': chat_keypad_type,
+        'reply_to_message_id': reply_to_message_id,
+        'disable_notification': disable_notification,
     }
 
     res = _send_request(token=token, method='sendPoll', data=data)
@@ -161,10 +168,10 @@ def send_contact(
 def get_chat(token: str, chat_id: str) -> Chat:
     data = {'chat_id': chat_id}
     chat = _send_request(token=token, method='getChat', data=data)
-    return Chat(**chat)
+    return Chat(**chat['chat'])
 
 
-def get_updates(token: str, limit: int, offset_id: str) -> Tuple[List[Update], str]:
+def get_updates(token: str, limit: int = 10, offset_id: Optional[str] = None) -> Tuple[List[Update], str]:
     data = {
         'limit': limit,
     }
@@ -250,38 +257,52 @@ def request_send_file(token: str, type: Literal['File', 'Image', 'Voice', 'Music
     return res['upload_url']
 
 
-def upload():
-    ...
+def upload(url: str, file_name: str, file_path: str) -> str:
+    res = _send_multipart_request(url=url, form_data={'file': (file_name, open(file_path, 'rb'))})
+    return res['file_id']
 
 
 def get_file():
     ...
 
 
-def set_commands():
-    ...
+def set_commands(token: str, bot_commands: List[BotCommand]) -> None:
+    data = {
+        'bot_commands': [command.dict() for command in bot_commands],
+    }
+    _send_request(token=token, method='setCommands', data=data)
 
 
-def edit_chat_keypad():
-    ...
+def edit_chat_keypad(
+        token: str,
+        chat_id: str,
+        chat_keypad: Keypad
+) -> None:
+    data = {
+        'chat_id': chat_id,
+        'chat_keypad_type': 'New',
+        'chat_keypad': chat_keypad.dict(),
+    }
+    _send_request(token=token, method='editChatKeypad', data=data)
 
 
-def update_bot_endpoint():
-    ...
+def remove_chat_keypad(token: str, chat_id: str) -> None:
+    data = {
+        'chat_id': chat_id,
+        'chat_keypad_type': 'Remove',
+    }
+    _send_request(token=token, method='editChatKeypad', data=data)
 
 
-def send_payment_message():
-    ...
-
-
-def get_payment_status():
-    ...
-
-
-def settle_payment():
-    ...
-
-
-def reverse_payment():
-    ...
-
+def update_bot_endpoint(
+        token: str,
+        url: str,
+        type: Literal['ReceiveUpdate', 'ReceiveInlineMessage', 'ReceiveQuery',
+                      'GetSelectionItem', 'SearchSelectionItems'],
+) -> Final[Union['Done', 'InvalidUrl']]:
+    data = {
+        'url': url,
+        'type': type,
+    }
+    res = _send_request(token=token, method='updateBotEndpoints', data=data)
+    return res['status']
