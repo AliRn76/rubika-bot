@@ -296,57 +296,98 @@
         ```
         </div>
 
+[//]: # ()
+[//]: # (## ارسال استیکر )
 
-## ارسال استیکر 
-- متد: ``sendSticker``
-- ورودی
+[//]: # (- متد: ``sendSticker``)
 
-| فیلد                   | نوع                                     | توضیحات                             |
-|------------------------|-----------------------------------------|-------------------------------------|
-| `token`                | `str`                                   | توکن                                |
-| `chat_id`              | `str`                                   | شناسه‌ی چت                          |
-| `sticker_id`           | `str`                                   | شناسه‌ی استیکر                      |
-| `chat_keypad`          | `str`                                   | keypad                              |
-| `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  (پیشفرض false) |
-| `inline_keypad`        | [`Optional[Keypad]`](../models/#keypad) | keypad                              |
-| `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |
-| `chat_keypad_type`     | `str`                                   | نوع keypad                          |
+[//]: # (- ورودی)
 
-- خروجی
+[//]: # ()
+[//]: # (| فیلد                   | نوع                                     | توضیحات                             |)
 
-| فیلد          | نوع    |  توضیحات     |
-|---------------|--------|--------------|
-| `message_id`  | `str`  | شناسه‌ی پیام |
+[//]: # (|------------------------|-----------------------------------------|-------------------------------------|)
 
-- مثال
+[//]: # (| `token`                | `str`                                   | توکن                                |)
 
-    === "cURL"
-        <div style="text-align: left">
-        ```python
-        {!> ../docs_src/send_sticker/send_sticker.sh!}
-        ```
-        </div>
+[//]: # (| `chat_id`              | `str`                                   | شناسه‌ی چت                          |)
 
-    === "Python"
-        <div style="text-align: left">
-        ```python
-        {!> ../docs_src/send_sticker/send_sticker.py!}
-        ```
-        </div>
-  
-    === "Python Package"
-        <div style="text-align: left">
-        ```python
-        {!> ../docs_src/send_sticker/send_sticker_package.py!}
-        ```
-        </div>
+[//]: # (| `sticker_id`           | `str`                                   | شناسه‌ی استیکر                      |)
 
-    === "NodeJs"
-        <div style="text-align: left">
-        ```js
-        {!> ../docs_src/send_sticker/send_sticker_node.js!}
-        ```
-        </div>
+[//]: # (| `chat_keypad`          | `str`                                   | keypad                              |)
+
+[//]: # (| `disable_notification` | `str`                                   | غیرفعال کردن اعلان؟  &#40;پیشفرض false&#41; |)
+
+[//]: # (| `inline_keypad`        | [`Optional[Keypad]`]&#40;../models/#keypad&#41; | keypad                              |)
+
+[//]: # (| `reply_to_message_id`  | `str`                                   | در جوابِ پیامِ؟                     |)
+
+[//]: # (| `chat_keypad_type`     | `str`                                   | نوع keypad                          |)
+
+[//]: # ()
+[//]: # (- خروجی)
+
+[//]: # ()
+[//]: # (| فیلد          | نوع    |  توضیحات     |)
+
+[//]: # (|---------------|--------|--------------|)
+
+[//]: # (| `message_id`  | `str`  | شناسه‌ی پیام |)
+
+[//]: # ()
+[//]: # (- مثال)
+
+[//]: # ()
+[//]: # (    === "cURL")
+
+[//]: # (        <div style="text-align: left">)
+
+[//]: # (        ```python)
+
+[//]: # (        {!> ../docs_src/send_sticker/send_sticker.sh!})
+
+[//]: # (        ```)
+
+[//]: # (        </div>)
+
+[//]: # ()
+[//]: # (    === "Python")
+
+[//]: # (        <div style="text-align: left">)
+
+[//]: # (        ```python)
+
+[//]: # (        {!> ../docs_src/send_sticker/send_sticker.py!})
+
+[//]: # (        ```)
+
+[//]: # (        </div>)
+
+[//]: # (  )
+[//]: # (    === "Python Package")
+
+[//]: # (        <div style="text-align: left">)
+
+[//]: # (        ```python)
+
+[//]: # (        {!> ../docs_src/send_sticker/send_sticker_package.py!})
+
+[//]: # (        ```)
+
+[//]: # (        </div>)
+
+[//]: # ()
+[//]: # (    === "NodeJs")
+
+[//]: # (        <div style="text-align: left">)
+
+[//]: # (        ```js)
+
+[//]: # (        {!> ../docs_src/send_sticker/send_sticker_node.js!})
+
+[//]: # (        ```)
+
+[//]: # (        </div>)
 
 
 ## ارسال مخاطب 
