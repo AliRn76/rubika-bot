@@ -64,17 +64,17 @@
 | `emoji_character` | `str`             | کاراکترِ اموجی   | 
 
 ### ContactMessage
-| فیلد             | نوع     | توضیحات       |
-|------------------|---------|---------------|
-| `phone_number`   | `str`   | شماره تلفن    |
-| `first_name`     | `str`   | نام           | 
-| `last_name`      | `str`   | نام خوانوادگی | 
+| فیلد             | نوع     | توضیحات      |
+|------------------|---------|--------------|
+| `phone_number`   | `str`   | شماره تلفن   |
+| `first_name`     | `str`   | نام          | 
+| `last_name`      | `str`   | نام خانوادگی | 
 
 ### PollStatus
 | فیلد                    | نوع                                 | توضیحات                     |
 |-------------------------|-------------------------------------|-----------------------------|
 | `state`                 | [`PollStatusEnum`](#pollstatusenum) | وضعیت نظرسنجی               |
-| `selection_index`       | `int`                               | -1 به معنی انتخاب نشده است. | 
+| `selection_index`       | `int`                               | 1- به معنی انتخاب نشده است. | 
 | `percent_vote_options`  | `list[int]`                         | ...                         |
 | `total_vote`            | `int`                               | تعداد کل رای های نظرسنجی    | 
 | `show_total_votes`      | `bool`                              | نمایش تمام رای ها؟          | 
@@ -193,8 +193,8 @@
 | `StringPicker`     | `str` | نمایش دکمه به صورت لیستی از string  |
 | `Location`         | `str` | ...                                 |
 | `Payment`          | `str` | نمایش دکمه جهت پرداخت               |
-| `CameraImage`      | `str` | نمایش دکمه جهت عکسبرداری از دوربین  |
-| `CameraVideo`      | `str` | نمایش دکمه جهت فیلمبرداری از دوربین |
+| `CameraImage`      | `str` | نمایش دکمه جهت عکسبرداری با دوربین  |
+| `CameraVideo`      | `str` | نمایش دکمه جهت فیلمبرداری با دوربین |
 | `GalleryImage`     | `str` | نمایش دکمه جهت ارسال عکس از گالری   |
 | `GalleryVideo`     | `str` | نمایش دکمه جهت ارسال فیلم از گالری  |
 | `File`             | `str` | نمایش دکمه جهت ارسال فایل           |
@@ -228,24 +228,24 @@
 
 
 ### Message
-|  فیلد                 | نوع                                       | توضیحات             |
-|-----------------------|-------------------------------------------|---------------------|
-| `message_id`          | `str`                                     | شناسه پیام          |
-| `text`                | `str`                                     | متن پیام            |
-| `time`                | `int`                                     | زمان                |
-| `is_edited`           | `bool`                                    | آیا ویرایش شده است؟ |
-| `sender_type`         | [`MessageSenderEnum`](#messagesenderenum) | نوع فرستنده         |
-| `sender_id`           | `str`                                     | شناسه فرستنده       |
-| `aux_data`            | [`AuxData`](#auxdata)                     | ...                 |
-| `file`                | [`File`](#file)                           | فایل                |
-| `reply_to_message_id` | `str`                                     | در جوابِ پیامِ؟     |
-| `forwarded_from`      | [`ForwardedFrom`](#forwardedfrom)         | فوروارد شده از‌؟    |
-| `forwarded_no_link`   | `str`                                     | ...                 |
-| `location`            | [`Location`](#location)                   | موقعیت مکانی        |
-| `sticker`             | [`Sticker`](#sticker)                     | استیکر              |
-| `contact_message`     | [`ContactMessage`](#contactmessage)       | ...                 |
-| `poll`                | [`Poll`](#poll)                           | نظرسنجی             |
-| `live_location`       | [`LiveLocation`](#livelocation)           | موقعیت مکانی فعلی   |
+|  فیلد                 | نوع                                       | توضیحات              |
+|-----------------------|-------------------------------------------|----------------------|
+| `message_id`          | `str`                                     | شناسه پیام           |
+| `text`                | `str`                                     | متن پیام             |
+| `time`                | `int`                                     | زمان                 |
+| `is_edited`           | `bool`                                    | آیا ویرایش شده است؟  |
+| `sender_type`         | [`MessageSenderEnum`](#messagesenderenum) | نوع فرستنده          |
+| `sender_id`           | `str`                                     | شناسه فرستنده        |
+| `aux_data`            | [`AuxData`](#auxdata)                     | ...                  |
+| `file`                | [`File`](#file)                           | فایل                 |
+| `reply_to_message_id` | `str`                                     | در جوابِ پیامِ؟      |
+| `forwarded_from`      | [`ForwardedFrom`](#forwardedfrom)         | فوروارد شده از‌ طرف؟ |
+| `forwarded_no_link`   | `str`                                     | ...                  |
+| `location`            | [`Location`](#location)                   | موقعیت مکانی         |
+| `sticker`             | [`Sticker`](#sticker)                     | استیکر               |
+| `contact_message`     | [`ContactMessage`](#contactmessage)       | ...                  |
+| `poll`                | [`Poll`](#poll)                           | نظرسنجی              |
+| `live_location`       | [`LiveLocation`](#livelocation)           | موقعیت مکانی فعلی    |
 
 
 ### Update
