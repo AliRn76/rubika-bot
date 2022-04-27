@@ -20,8 +20,8 @@ theme:
   - search.suggest
   - search.highlight
   - content.tabs.link
-  logo: img/rubika.png
-  favicon: img/rubika.png
+  logo: https://rubika.ir/static/images/logo.svg
+  favicon: https://rubika.ir/static/images/logo.svg
   language: fa
 
 nav:
