@@ -76,8 +76,8 @@
 | `state`                 | [`PollStatusEnum`](#pollstatusenum) | وضعیت نظرسنجی               |
 | `selection_index`       | `int`                               | 1- به معنی انتخاب نشده است. | 
 | `percent_vote_options`  | `list[int]`                         | ...                         |
-| `total_vote`            | `int`                               | تعداد کل رای های نظرسنجی    | 
-| `show_total_votes`      | `bool`                              | نمایش تمام رای ها؟          | 
+| `total_vote`            | `int`                               | تعداد کل آراء نظرسنجی       | 
+| `show_total_votes`      | `bool`                              | نمایش تمام آرا؟             | 
 
 ### Poll
 | فیلد             | نوع                          | توضیحات             |
@@ -93,14 +93,14 @@
 | `latitude`   | `str`   | عرض جغرافیایی | 
 
 ### LiveLocation
-| فیلد                | نوع                                                 | توضیحات              |
-|---------------------|-----------------------------------------------------|----------------------|
-| `start_time`        | `str`                                               | زمان شروع            |
-| `live_period`       | `int`                                               | مدت زمان (به ثانیه)  | 
-| `current_location`  | [`Location`](#location)                             | موقعیت مکانی فعلی    | 
-| `user_id`           | `str`                                               | شناسه کاربر          | 
-| `status`            | [`LiveLocationStatusEnum`](#livelocationstatusenum) | وضعیت موقعیت مکانی   | 
-| `last_update_time`  | `str`                                               | آخرین زمان بروزرسانی | 
+| فیلد                | نوع                                                 | توضیحات                |
+|---------------------|-----------------------------------------------------|------------------------|
+| `start_time`        | `str`                                               | زمان شروع              |
+| `live_period`       | `int`                                               | مدت زمان (به ثانیه)    | 
+| `current_location`  | [`Location`](#location)                             | موقعیت مکانی فعلی      | 
+| `user_id`           | `str`                                               | شناسه کاربر            | 
+| `status`            | [`LiveLocationStatusEnum`](#livelocationstatusenum) | وضعیت موقعیت مکانی     | 
+| `last_update_time`  | `str`                                               | آخرین زمان به روزرسانی | 
 
 ### ButtonSelectionItem
 | فیلد         | نوع                                                   | توضیحات        |
@@ -267,8 +267,8 @@
 | `file`       | `Optional[File]`                  | فایل          |
 | `location`   | [`Optional[Location]`](#location) | ...           |
 | `aux_data`   | [`Optional[AuxData]`](#auxdata)   | ...           |
-| `message_id` | `str`                             | شناسه‌ی پیام  |
-| `chat_id`    | `str`                             | شناسه‌ی چت    |
+| `message_id` | `str`                             | شناسه پیام    |
+| `chat_id`    | `str`                             | شناسه چت      |
 
 
 
@@ -338,7 +338,7 @@
 | فیلد     | نوع    | توضیحات                      |
 |----------|--------|------------------------------|
 | `String` | `str`  | امکان ارسال تمامی کاراکتر ها |
-| `Number` | `str`  | امکان ارسال کاراکترهای عددی  | 
+| `Number` | `str`  | امکان ارسال کاراکترها عددی   | 
 
 ### ButtonTextboxTypeLineEnum
 | فیلد         | نوع    | توضیحات                      |
