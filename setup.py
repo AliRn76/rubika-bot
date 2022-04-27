@@ -16,7 +16,7 @@ setup(
     version=_version,
     python_requires='>=3.8',
     author='Rubika Team',
-    author_email='A.RajabNezhad@rubika.ir',
+    author_email='AliRn76@yahoo.com',
     keywords=['rubika', 'bot', 'rubika-bot'],
     url='https://github.com/alirn76/rubika-bot',
     description='Rubika Bot Library',

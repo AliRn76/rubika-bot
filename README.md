@@ -12,14 +12,8 @@ $ pip install rubika-bot
 
 ## Steps of use
 - First you have to create a bot for yourself with <b/>Bot Father</b>.
-- Hold the token it gives you and use it in the rest of the steps.
-- Using your desired method and token, create your URL in the following format and request POST.
+- Hold the token it gives you and use it the following methods.
 
-```python
-https://messengerg2b1.iranlms.ir/v3/{token}/{method}
-```
-
-* If you use the `` python`` language, you can also use the [rubika-bot](https://pypi.org/project/rubika-bot/) package.
 
 ## Description
 
@@ -30,7 +24,7 @@ After you have built your bot in Bot Father and defined your endpoint, the syste
 
 <br/>
 
-### <u>receiveUpdate</u>
+### receiveUpdate
 
 Whenever a user <b> sends a message </b> or taps on a <b> keypad </b>, you will receive this type of request.
 
@@ -62,7 +56,7 @@ Whenever a user <b> sends a message </b> or taps on a <b> keypad </b>, you will 
 
 <br/>
 
-### <u>receiveInlineMessage</u>
+### receiveInlineMessage
 Whenever the user taps on the <b>inline keypad</b>, you receive this type of request.
 
 <br/>
@@ -193,19 +187,7 @@ send_location(
 )
 ```
 
-- #### Send Sticker
-
-```python
-from rubika_bot.requests import send_sticker
-
-send_sticker(
-    token=...,
-    chat_id=...,
-    sticker_id=...,
-)
-```
-
-- #### Send Sticker
+- #### Send Contact
 
 ```python
 from rubika_bot.requests import send_contact
