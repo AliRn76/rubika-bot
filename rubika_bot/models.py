@@ -181,7 +181,7 @@ class MessageKeypadUpdate(BaseModel):
 
 class Message(BaseModel):
     message_id: str
-    text: str
+    text: Optional[str]
     time: int
     is_edited: bool
     sender_type: Literal['User', 'Bot']
@@ -191,7 +191,7 @@ class Message(BaseModel):
     file: Optional[File]
     reply_to_message_id: Optional[str]
     forwarded_from: Optional[ForwardedFrom]
-    forwarded_no_link: Optional[str]  # TODO: type? from_title ?
+    forwarded_no_link: Optional[str]
     location: Optional[Location]
     sticker: Optional[Sticker]
     contact_message: Optional[ContactMessage]

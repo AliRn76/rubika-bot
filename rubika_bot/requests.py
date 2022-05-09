@@ -262,22 +262,18 @@ def upload(url: str, file_name: str, file_path: str) -> str:
     return res['file_id']
 
 
-def get_file():
-    ...
+def get_file(token: str, file_id: str) -> str:
+    data = {'file_id': file_id}
+    res = _send_request(token=token, method='getFile', data=data)
+    return res['download_url']
 
 
 def set_commands(token: str, bot_commands: List[BotCommand]) -> None:
-    data = {
-        'bot_commands': [command.dict() for command in bot_commands],
-    }
+    data = {'bot_commands': [command.dict() for command in bot_commands]}
     _send_request(token=token, method='setCommands', data=data)
 
 
-def edit_chat_keypad(
-        token: str,
-        chat_id: str,
-        chat_keypad: Keypad
-) -> None:
+def edit_chat_keypad(token: str, chat_id: str, chat_keypad: Keypad) -> None:
     data = {
         'chat_id': chat_id,
         'chat_keypad_type': 'New',
